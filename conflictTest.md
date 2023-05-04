@@ -1,2 +1,2 @@
 Hello there
-Cool
+Same time change
