@@ -1,2 +1,2 @@
-# quincinnatti
-Quincinnatti startup!
+# quincinnati
+Quincinnati startup!
