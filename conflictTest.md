@@ -1,2 +1,2 @@
 Hello there
-Cool
+Change at the same time
