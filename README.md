@@ -4,7 +4,7 @@
 
 ### Elevator Pitch
 
-Dunno, it's gonna be cool though
+Quincinnati is a city-building game where you compete against your friends to build the most prosperous city. Design and build your own virtual city with residential, commercial, and industrial zones, and watch it grow and evolve over time. Featuring an intuitive interface and easy-to-learn mechanics, Quincinnati is the perfect game for players of all skill levels. Sign up now and start building the city of your dreams!
 
 ### Design
 
