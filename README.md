@@ -10,13 +10,16 @@ Dunno, it's gonna be cool though
 
 Below are some rough designs of each of the pages that make up the game, being the Login page, the page for joining a match, and inside a match.
 
-![Login Interface](https://user-images.githubusercontent.com/112978030/236575294-4440147a-7f2a-46c0-aa1e-0d23cd36bf4d.jpg)
+![Login Interface](https://user-images.githubusercontent.com/112978030/236575904-d9f37648-e8f1-4113-83e3-25a50cdaefe8.jpg)
+
 **Login Interface:** The Login interface has a spot for the username and the password. If a username without a registered account tries to login, a message will appear asking the individual to register. If they try to register a username that is already in the database, a message will appear informing the user that the username is already in use.
 
-![Interface for starting a match or joining one](https://user-images.githubusercontent.com/112978030/236575383-4e5ff432-40e7-43e5-84a0-10ff4e3c9699.jpg)
+![Interface for starting a match or joining one](https://user-images.githubusercontent.com/112978030/236575942-f9784546-a2af-49ea-beec-f6e17960715a.jpg)
+
 **Join Match Interface:** This interface will let a user create a match with a unique "game ID" or join a match with the "game ID" of a friend. If no game ID is given, they will just join a public match that anyone can join. I might add a spot to send messages between users, to send game ID's or to coordinate a game.
 
-![Interface for playing the game](https://user-images.githubusercontent.com/112978030/236575432-a20662c2-b820-4d85-9107-9b699dbe2ac4.jpg)
+![Interface for playing the game](https://user-images.githubusercontent.com/112978030/236575982-6dc3dcae-6421-4dea-958d-6ec6bd28f87e.jpg)
+
 **Game Interface:** This is where the user actually plays the game. Basic layout includes the game ID in the top left corner, the leaderboard of the top 5 biggest cities based off population in the top right corner, and a shop interface along the bottom, displaying the current number of each building built, as well as total money, population, and possibly other resources.
 
 Here is a where some sort of design picture would go.
