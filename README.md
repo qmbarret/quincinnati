@@ -22,8 +22,6 @@ Below are some rough designs of each of the pages that make up the game, being t
 
 **Game Interface:** This is where the user actually plays the game. Basic layout includes the game ID in the top left corner, the leaderboard of the top 5 biggest cities based off population in the top right corner, and a shop interface along the bottom, displaying the current number of each building built, as well as total money, population, and possibly other resources.
 
-Here is a where some sort of design picture would go.
-
 ### Key Features
 
 - Secure login over HTTPS
