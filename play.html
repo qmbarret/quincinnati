@@ -43,7 +43,66 @@
             <li>Player E - Population: 50</li>
           </ol>
         </section>
-      
+        <section>
+            <h2>The Game!</h2>
+            <canvas id="showCity" width="300" height="200" style="border: 1px solid #000000"></canvas>
+            <script>
+                const ctx = document.getElementById('showCity').getContext('2d');
+
+                // Draw the skyline
+                ctx.fillStyle = '#d3d3d3';
+                ctx.beginPath();
+                ctx.moveTo(0, 120);
+                ctx.lineTo(40, 120);
+                ctx.lineTo(40, 70);
+                ctx.lineTo(80, 70);
+                ctx.lineTo(80, 90);
+                ctx.lineTo(120, 90);
+                ctx.lineTo(120, 20);
+                ctx.lineTo(160, 20);
+                ctx.lineTo(160, 80);
+                ctx.lineTo(200, 80);
+                ctx.lineTo(200, 60);
+                ctx.lineTo(240, 60);
+                ctx.lineTo(240, 120);
+                ctx.lineTo(300, 120);
+                ctx.lineTo(300, 200);
+                ctx.lineTo(0, 200);
+                ctx.closePath();
+                ctx.fill();
+                // Draw the houses
+                ctx.fillStyle = '#ff2222';
+                ctx.fillRect(20, 160, 60, 40);
+                ctx.fillStyle = '#ff0000';
+                ctx.beginPath();
+                ctx.moveTo(20, 160);
+                ctx.lineTo(50, 120);
+                ctx.lineTo(80, 160);
+                ctx.closePath();
+                ctx.fill();
+
+                ctx.fillStyle = '#44ff44';
+                ctx.fillRect(100, 160, 80, 40);
+                ctx.fillStyle = '#00ff00';
+                ctx.beginPath();
+                ctx.moveTo(100, 160);
+                ctx.lineTo(140, 130);
+                ctx.lineTo(180, 160);
+                ctx.closePath();
+                ctx.fill();
+
+                ctx.fillStyle = '#2222ff';
+                ctx.fillRect(200, 160, 60, 40);
+                ctx.fillStyle = '#0000ff';
+                ctx.beginPath();
+                ctx.moveTo(200, 160);
+                ctx.lineTo(230, 100);
+                ctx.lineTo(260, 160);
+                ctx.closePath();
+                ctx.fill();
+            </script>
+        </section>
+
         <section>
           <h2>City Stats</h2>
           <p>Population: 10 | Money: $100</p>
