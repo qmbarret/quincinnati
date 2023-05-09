@@ -44,3 +44,27 @@ I am going to use the required technologies in the following ways.
 - **Login** - Register and login users. Credentials securely stored in database. Can't play unless authenticated.
 - **WebSocket** - As each user plays the game, the leaderboard will update and broadcast to other users their total population. Also with a game ID they can play with others
 - **React** - Application ported to use the React web framework.
+
+## HTML Deliverable
+For this deliverable, I added the basic application structure.
+- **HTML Pages** - Four HTML pages that represent the ability to login, join match, play match, and an about page.
+- **Links** - The login page automatically links to the join match page. The join match page automatically links to the play match page.
+- **Text** - Each form has a textual description for its input. TODO
+- **Images** - TODO
+- **Login** - Input boxes for username and password with a button for logging in and registering.
+- **Database** - When someone joins a match, it will load their previous data if they were in the match before. Leaving will save their city data before leaving.
+- **WebSocket** - The leaderboard will show realtime city populations and who has the biggest cities.
+
+## CSS Deliverable
+
+## JavaScript Deliverable
+
+## Service Deliverable
+
+## DB Deliverable
+
+## Login Deliverable
+
+## WebSocket Deliverable
+
+## React Deliverable
