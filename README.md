@@ -47,6 +47,9 @@ I am going to use the required technologies in the following ways.
 
 ## HTML Deliverable
 For this deliverable, I added the basic application structure.
+
+Add a progress bar to the play game page? Add more textual context. Add images for the house/store/factory
+
 - **HTML Pages** - Four HTML pages that represent the ability to login, join match, play match, and an about page.
 - **Links** - The login page automatically links to the join match page. The join match page automatically links to the play match page.
 - **Text** - Each form has a textual description for its input. TODO
