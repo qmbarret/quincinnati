@@ -52,8 +52,8 @@ Add a progress bar to the play game page? Add more textual context. Add images f
 
 - **HTML Pages** - Four HTML pages that represent the ability to login, join match, play match, and an about page.
 - **Links** - The login page automatically links to the join match page. The join match page automatically links to the play match page.
-- **Text** - Each form has a textual description for its input. TODO
-- **Images** - TODO
+- **Text** - Each form has a textual description for its input. Included a spot for city/building quotes in the about page.
+- **Images** - Inserted some images for each of the buildings so far, other images are uploaded to the images folder to be implemented later.
 - **Login** - Input boxes for username and password with a button for logging in and registering.
 - **Database** - When someone joins a match, it will load their previous data if they were in the match before. Leaving will save their city data before leaving.
 - **WebSocket** - The leaderboard will show realtime city populations and who has the biggest cities.
