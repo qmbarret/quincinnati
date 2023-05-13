@@ -1,0 +1,64 @@
+header {
+    flex: 0 80px;
+    display: flex;
+    background: rgb(185, 117, 0);
+    flex-direction: row;
+    color: white;
+    font-size: 20px;
+    justify-content: start;
+    align-items: center;
+    font-family: monospace;
+    padding-left: 1em;
+}
+
+menu {
+    display: flex;
+    flex-direction: row;
+    padding-left: .5em;
+}
+
+menu > * {
+    margin-right: 0.5em;
+}
+
+.button-container button {
+    margin-right: 8px;
+  }
+
+html {
+    height: 100%;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(images/background.png), url(images/blankBackground.png);
+    background-position: bottom center, top;
+    background-repeat: repeat-x, repeat;
+    background-size: 30%, cover;
+    font-family: monospace;
+}
+
+body {
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+div {
+    padding: 0, 1em;
+}
+
+footer {
+    flex: 0 30px;
+    display: flex;
+    background-color: rgb(64, 36, 0);
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: monospace;
+}
