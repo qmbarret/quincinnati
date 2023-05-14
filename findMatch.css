@@ -3,6 +3,10 @@ form {
     display: flex;
 }
 
+.form-control {
+    margin-right: 10px;
+}
+
 label {
     margin-right: 10px;
 }
@@ -14,4 +18,17 @@ input {
 
 button {
     flex: none;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(images/nightBackground.png), url(images/blankBackground.png);
+    background-position: top center, bottom;
+    background-repeat: repeat-x, repeat;
+    background-size: 20%, cover;
+    font-family: monospace;
 }
