@@ -49,10 +49,6 @@ body {
     height: 100%;
 }
 
-div {
-    padding: 0, 1em;
-}
-
 footer {
     flex: 0 30px;
     display: flex;

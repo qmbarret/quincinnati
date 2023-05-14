@@ -1,0 +1,17 @@
+form {
+    align-items: center;
+    display: flex;
+}
+
+label {
+    margin-right: 10px;
+}
+
+input {
+    margin-right: 10px;
+    flex: 1;
+}
+
+button {
+    flex: none;
+}
