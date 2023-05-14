@@ -22,20 +22,22 @@
     </header>
 
     <main>
-        <section>
-          <h1>Welcome, <span id="playerUsername">Player A</span>!</h1>
+        <section id="welcomeBanner">
+          <h5 class="my-1">Welcome, <span id="playerUsername">Player A</span>!</h5>
           <p>Game ID: <span id="gameID">coolgameID</span></p>
-          <p>Placeholders to display the game and user info</p>
         </section>
-        <section>
-            <h2>
-                <label for="gameProgress">Progress of Top Player: <span id="currentLeader">Player A</span></label>
-                <progress id="progress" max="10000" value="5000"></progress>
-            </h2>
-            <p>Placeholder to display the current winner and their progress to the goal population.</p>
+        <section id="progressBanner" class="text-center">
+          <h4 class="my-2">
+            <label for="gameProgress">Progress of Top Player: <span id="currentLeader">Player A</span></label>
+          </h4>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <progress id="progress" class="w-100" max="10000" value="5000"></progress>
+            </div>
+          </div>
         </section>
         <section id="leaderboard">
-          <h2>Leaderboard</h2>
+          <h4>--Leaderboard--<image width="20px" src="images/trophySmall.png"></image></h4>
           <ol>
             <li>Player A - Population: 5000</li>
             <li>Player B - Population: 1000</li>
@@ -43,42 +45,35 @@
             <li>Player D - Population: 800</li>
             <li>Player E - Population: 700</li>
           </ol>
-          <p>Placeholder for where some socket communication will occur to get the current top populations and players</p>
         </section>
 
-        <section id="gameGrid">        </section>
+        <section id="gameGrid"></section>
 
-        <section>
+        <section id="playerChat">
             <h3>Player Chat</h3>
             <p>Player A: I'm the best</p>
             <p>Player B: ur a noob</p>
             <p>Player C: I love this game!</p>
-            <p>Placeholder for more socket communication, a simple chat between players in the match</p>
         </section>
 
         <section id="cityStats">
-          <h2>City Stats</h2>
           <p>Population: 5000 | Money: $1000</p>
-          <p>Placeholder for database information for the city information</p>
         </section>
       
         <section id="buyBuilding">
-            <h2>Buy Buildings</h2>
-            <div>
-            <img src="images/blueHouse.png" alt="house" width="90"></image>
-            <img src="images/store.png" alt="store" width="90"></image>
-            <img src="images/factory.png" alt="factory" width="90"></image>
-            </div>
+          <h4>Buy Buildings:</h4>
           <button>
             Buy House <span id="houseCounter">0</span>
           </button>
+          <img src="images/blueHouse.png" alt="house" width="90"></image>
           <button>
             Buy Store <span id="storeCounter">0</span>
           </button>
+          <img src="images/store.png" alt="store" width="90"></image>
           <button>
             Buy Factory <span id="factoryCounter">0</span>
           </button>
-          <p>Placeholder for more database information and for buying buildings functionality</p>
+          <img src="images/factory.png" alt="factory" width="90"></image>
         </section>
       </main>
       
