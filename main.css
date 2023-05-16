@@ -4,12 +4,12 @@ header {
     background: #C29D75;
     flex-direction: row;
     color: white;
-    font-size: 20px;
+    font-size: 3vh;
     justify-content: start;
     align-items: center;
     font-family: "Audiowide", monospace;
     padding-left: 1em;
-    border-bottom: 3.5px dashed #755532;
+    border-bottom: .1em dashed #755532;
 }
 
 menu {
@@ -23,7 +23,7 @@ menu > * {
 }
 
 .button-container button {
-    margin-right: 8px;
+    margin-right: .5em;
   }
 
 html {
@@ -58,5 +58,5 @@ footer {
     justify-content: center;
     color: white;
     font-family: "Audiowide", monospace;
-    border-top: 3.5px dashed #CDEFFA;
+    border-top: .2em dashed #CDEFFA;
 }
