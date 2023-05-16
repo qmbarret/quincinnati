@@ -1,10 +1,9 @@
 main {
     flex: 1;
     display: flex;
-    background-image: url(images/blankBackground.png);
+    background-image: url(images/grass.png);
     background-repeat: repeat;
-    background-size: cover;
-    z-index: -2;
+    background-size: 10%;
 }
 
 #welcomeBanner {
@@ -39,14 +38,6 @@ main {
   /* gameGrid */
   #gameGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    justify-items: center;
-    align-items: center;
-    width: 100%;
-    height: 84.58%;
-    background-image: url(images/grass.png);
-    transform: translateY(-10%);
-    z-index: -1;
   }
   
   #gameGrid img {
@@ -58,12 +49,12 @@ main {
   
   /* playerChat */
   #playerChat {
-    position: absolute;
-    top: 90px;
-    right: -200px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
     width: 200px;
-    height: calc(100% - 120px);
-    background-color: #f2f2f2;
+    height: calc(140px + 4.2%);
+    background-color: transparent;
     transition: right 0.3s ease-in-out;
     overflow-y: auto;
     z-index: 2;
@@ -72,21 +63,26 @@ main {
   input[type='checkbox'] { 
     display: none; 
   }
-  .wrap-collabsible { margin: 1.2rem 0; }
+  .wrap-collabsible {
+    margin: 1.2rem 0;
+  }
   .lbl-toggle { 
     display: block;
-    font-weight: bold;
     font-size: .8rem;
     text-transform: uppercase;
     text-align: center;
-    padding: 1rem;
-    color: #DDD;
+    padding: .2rem;
+    color: #ccc;
     background: #0069ff;
     cursor: pointer;
-    border-radius: 7px;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
     transition: all 0.25s ease-out;
   }
-  .lbl-toggle:hover { color: #FFF; }
+  .lbl-toggle:hover {
+    color: #FFF;
+    background: #0075ff;
+  }
   .lbl-toggle::before {
     content: ' ';
     display: inline-block;
@@ -98,14 +94,21 @@ main {
     transform:translateY(-2px);
     transition: transform .2s ease-out;
   }
-  .toggle:checked+.lbl-toggle::before { transform: rotate(90deg) translateX(-3px); }
-  .collapsible-content { max-height: 0px; overflow: hidden; transition: max-height .25s ease-in-out; }
+  .toggle:checked+.lbl-toggle::before {
+    transform: rotate(-90deg) translateX(3px);
+  }
+  .collapsible-content {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height .5s ease-in-out;
+  }
   .toggle:checked + .lbl-toggle + .collapsible-content {
     max-height: 350px;
   }
   .toggle:checked+.lbl-toggle {
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0; }
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
   .collapsible-content .content-inner {
     font-size: 0.7rem;
     background: rgba(0, 105, 255, .2);
@@ -113,8 +116,11 @@ main {
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
     padding: .5rem 1rem;
+    color: white;
   }
-  .collapsible-content p { margin-bottom: 0; }
+  .collapsible-content p {
+    margin-bottom: 0;
+  }
   
 
   
