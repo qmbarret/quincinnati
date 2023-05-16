@@ -1,15 +1,15 @@
 header {
-    flex: 0 80px;
+    flex: 0 11.22%;
     display: flex;
-    background: rgb(191, 151, 81);
+    background: #C29D75;
     flex-direction: row;
     color: white;
     font-size: 20px;
     justify-content: start;
     align-items: center;
-    font-family: monospace;
+    font-family: "Audiowide", monospace;
     padding-left: 1em;
-    border-bottom: 3.5px dashed rgb(250, 206, 159);
+    border-bottom: 3.5px dashed #755532;
 }
 
 menu {
@@ -40,7 +40,7 @@ main {
     background-position: bottom center, top;
     background-repeat: repeat-x, repeat;
     background-size: 30%, cover;
-    font-family: monospace;
+    font-family: "Audiowide", monospace;
 }
 
 body {
@@ -51,12 +51,12 @@ body {
 }
 
 footer {
-    flex: 0 30px;
+    flex: 0 4.2%;
     display: flex;
-    background-color: rgb(23, 38, 64);
+    background-color: #105E75;
     align-items: center;
     justify-content: center;
     color: white;
-    font-family: monospace;
-    border-top: 3.5px dashed rgb(23, 16, 52);
+    font-family: "Audiowide", monospace;
+    border-top: 3.5px dashed #CDEFFA;
 }

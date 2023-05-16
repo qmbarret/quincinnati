@@ -30,5 +30,5 @@ main {
     background-position: top center, bottom;
     background-repeat: repeat-x, repeat;
     background-size: 20%, cover;
-    font-family: monospace;
+    font-family: "Audiowide", monospace;
 }
