@@ -39,7 +39,7 @@
           </div>
         </section>
         <section id="leaderboard">
-          <h4>--Leaderboard--<image width="20px" src="images/trophySmall.png"></image></h4>
+          <h4><image width="20px" src="images/trophySmall.png"></image>--Leaderboard--<image width="20px" src="images/trophySmall.png"></image></h4>
           <ol>
             <li>Player A - Population: 5000</li>
             <li>Player B - Population: 1000</li>
@@ -52,10 +52,17 @@
         <section id="gameGrid"></section>
 
         <section id="playerChat">
-            <h3>Player Chat</h3>
-            <p>Player A: I'm the best</p>
-            <p>Player B: ur a noob</p>
-            <p>Player C: I love this game!</p>
+          <div class="wrap-collabsible">
+            <input id="collapsible" class="toggle" type="checkbox">
+            <label for="collapsible" class="lbl-toggle">Player Chat</label>
+            <div class="collapsible-content">
+              <div class="content-inner">
+                <p>Player A: I'm the best</p>
+                <p>Player B: ur a noob</p>
+                <p>Player C: I love this game!</p>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section id="cityStats">
