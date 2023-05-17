@@ -34,6 +34,10 @@ main {
     top: 11.22%;
     right: 0px;
   }
+
+  .myHeader {
+    font-size: min(2vw, 3vh);
+  }
   
   /* gameGrid */
   #gameGrid {
@@ -155,19 +159,32 @@ main {
     height: 8.8%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    font-size: 3vh;
   }
   
   #buyBuilding button {
     background-color: #999fb3;
     border: none;
     color: #333333;
-    padding: 10px 20px;
-    font-size: 13px;
+    padding: 1vh 1.5vh;
+    font-size: 1.5vh;
     margin: 10px;
     border-radius: 6px;
     height: 35px;
   }
 
+  @media (orientation: portrait) {
+    #welcomeBanner {
+      display: none;
+    }
+    #leaderboard {
+      display: none;
+    }
+    #buyBuilding img {
+      width: 0;
+    }
+  }
 
   @media (max-height: 500px) {
     #welcomeBanner {
