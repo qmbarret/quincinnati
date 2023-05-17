@@ -14,7 +14,11 @@
     <header>
       <h1>Quincinnati</h1>
       <nav>
-        <menu>
+        <input id="menu-toggle" type="checkbox" />
+        <label class='menu-button-container' for="menu-toggle">
+          <div class='menu-button'></div>
+        </label>
+        <menu class="menu">
           <div><a class="text-white" href="index.html">Home</a></div>
           <div><a class="text-white" href="findMatch.html">Find a Match</a></div>
           <div><a class="text-white" href="play.html">Play the Game</a></div>
@@ -49,10 +53,12 @@
           </ol>
         </section>
 
-        <section id="gameGrid"></section>
+        <section id="gameGrid">
+          <image width="20px" src="images/cityHall.png" id="cityHall"></image>
+        </section>
 
         <section id="playerChat">
-          <div class="wrap-collabsible">
+          <div class="wrap-collapsible">
             <input id="collapsible" class="toggle" type="checkbox">
             <label for="collapsible" class="lbl-toggle">Player Chat</label>
             <div class="collapsible-content">
@@ -60,6 +66,7 @@
                 <p>Player A: I'm the best</p>
                 <p>Player B: ur a noob</p>
                 <p>Player C: I love this game!</p>
+                <input type="text" id="chatInput"></input>
               </div>
             </div>
           </div>

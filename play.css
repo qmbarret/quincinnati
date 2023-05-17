@@ -39,9 +39,13 @@ main {
   #gameGrid {
     display: grid;
   }
+  .cityHall {
+    display: flex;
+    align-items: center;
+  }
   
   #gameGrid img {
-    width: 100%;
+    width: 15vh;
     height: auto;
   }
   
@@ -53,18 +57,17 @@ main {
     bottom: 0;
     right: 0;
     width: 200px;
-    height: calc(140px + 4.2%);
+    height: calc(120px + 4.2%);
     background-color: transparent;
     transition: right 0.3s ease-in-out;
-    overflow-y: auto;
     z-index: 2;
   }
 
   input[type='checkbox'] { 
     display: none; 
   }
-  .wrap-collabsible {
-    margin: 1.2rem 0;
+  .wrap-collapsible {
+    position: relative;
   }
   .lbl-toggle { 
     display: block;
@@ -99,6 +102,9 @@ main {
   }
   .collapsible-content {
     max-height: 0px;
+    position: absolute;
+    bottom: 25.6px;
+    width: 100%;
     overflow: hidden;
     transition: max-height .5s ease-in-out;
   }
@@ -113,8 +119,8 @@ main {
     font-size: 0.7rem;
     background: rgba(0, 105, 255, .2);
     border-bottom: 1px solid rgba(0, 105, 255, .45);
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
     padding: .5rem 1rem;
     color: white;
   }
@@ -122,7 +128,6 @@ main {
     margin-bottom: 0;
   }
   
-
   
   /* cityStats and buyBuilding */
   #cityStats,

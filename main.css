@@ -1,7 +1,7 @@
 header {
     flex: 0 11.22%;
     display: flex;
-    background: #C29D75;
+    background:linear-gradient(to left, #C29D75, #755532);
     flex-direction: row;
     color: white;
     font-size: 3vh;
@@ -9,17 +9,118 @@ header {
     align-items: center;
     font-family: "Audiowide", monospace;
     padding-left: 1em;
-    border-bottom: .1em dashed #755532;
+    border-bottom: 2px #ba8e5e outset;
 }
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu > div {
+    margin: 0 1rem;
+    overflow: hidden;
+  }
+
+  .menu-button-container {
+    display: none;
+    height: 100%;
+    width: 30px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #menu-toggle {
+    display: none;
+  }
+  
+  .menu-button,
+  .menu-button::before,
+  .menu-button::after {
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    right: 2%;
+    height: 4px;
+    width: 30px;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 2px;
+  }
+  
+  .menu-button::before {
+    content: '';
+    margin-top: -8px;
+  }
+  
+  .menu-button::after {
+    content: '';
+    margin-top: 8px;
+  }
+  
+  #menu-toggle:checked + .menu-button-container .menu-button::before {
+    margin-top: 0px;
+    transform: rotate(405deg);
+  }
+  
+  #menu-toggle:checked + .menu-button-container .menu-button {
+    background: rgba(255, 255, 255, 0);
+  }
+  
+  #menu-toggle:checked + .menu-button-container .menu-button::after {
+    margin-top: 0px;
+    transform: rotate(-405deg);
+  }
+  
+  @media (orientation: portrait) {
+    .menu-button-container {
+      display: flex;
+    }
+    .menu {
+      position: absolute;
+      top: 11.22%;
+      left: 0;
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      z-index: 5;
+    }
+    #menu-toggle ~ .menu div {
+      height: 0;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    #menu-toggle:checked ~ .menu div {
+      border: 1px solid #333;
+      height: 2.5em;
+      padding: 0.5em;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .menu > div {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0.5em 0;
+      width: 100%;
+      color: white;
+      background:linear-gradient(to right, #755532, #624a2f);
+    }
+    .menu > div:not(:last-child) {
+      border-bottom: 1px solid #444;
+    }
+  }
 
 menu {
     display: flex;
     flex-direction: row;
     padding-left: .5em;
-}
-
-menu > * {
-    margin-right: 0.5em;
 }
 
 .button-container button {
@@ -53,10 +154,10 @@ body {
 footer {
     flex: 0 4.2%;
     display: flex;
-    background-color: #105E75;
+    background:linear-gradient(to right,#105E75, #53aac7);
     align-items: center;
     justify-content: center;
     color: white;
     font-family: "Audiowide", monospace;
-    border-top: .2em dashed #CDEFFA;
+    border-top: .2em inset #c0e2ff;
 }
