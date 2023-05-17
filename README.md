@@ -60,6 +60,15 @@ Add a progress bar to the play game page? Add more textual context. Add images f
 
 ## CSS Deliverable
 
+For this deliverable I styled the application into its possible final appearance:
+
+- **Header, Footer, and Main content body**
+- **Navigation Elements** - I dropped the underlines and changed the color for anchor elements as well as a hamburger menu that appears when on the phone (or in portrait mode)
+- **Responsive to Window Resizing** - My app mostly looks good on all window sizes and devices. On the play page, too small makes it really difficult to see anything. But it automatically removes the header and footer at a certain height, and removes certain game elements (leaderboard, welcome banner, etc) if there isn't enough room
+- **Application Elements** - Used good contrast and fun blue theme throughout
+- **Application Text Content** - Consistent fonts throughout the application
+- **Application Images** - Images are used in the background and scale with the window size
+
 ## JavaScript Deliverable
 
 ## Service Deliverable
