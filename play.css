@@ -55,9 +55,9 @@ main {
   #playerChat {
     position: fixed;
     bottom: 0;
-    right: 0;
+    right: 1%;
     width: 200px;
-    height: calc(120px + 4.2%);
+    height: calc(25.6px + 19%);
     background-color: transparent;
     transition: right 0.3s ease-in-out;
     z-index: 2;
@@ -134,7 +134,6 @@ main {
   #buyBuilding {
     position: fixed;
     width: 100%;
-    padding: 5px;
     color: white;
     font-size: 13px;
     text-align: left;
@@ -143,8 +142,9 @@ main {
   
   #cityStats {
     background-color: #333333;
-    bottom: 80px;
+    bottom: 13%;
     display: flex;
+    height: 6%;
     justify-content: center;
     align-items: center;
   }
@@ -152,6 +152,7 @@ main {
   #buyBuilding {
     background-color: #333333;
     bottom: 4.2%;
+    height: 8.8%;
     display: flex;
     justify-content: center;
   }
