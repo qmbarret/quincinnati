@@ -168,7 +168,7 @@ main {
     border: none;
     color: #333333;
     padding: 1vh 1.5vh;
-    font-size: 1.5vh;
+    font-size: min(1.5vw, 1.5vh);
     margin: 10px;
     border-radius: 6px;
     height: 35px;
