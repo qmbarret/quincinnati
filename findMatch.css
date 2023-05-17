@@ -29,6 +29,6 @@ main {
     background-image: url(images/nightBackground.png), url(images/blankBackground.png);
     background-position: top center, bottom;
     background-repeat: repeat-x, repeat;
-    background-size: 20%, cover;
+    background-size: 13%, cover;
     font-family: "Audiowide", monospace;
 }
