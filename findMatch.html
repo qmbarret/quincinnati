@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="findMatch.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+
+    <script src="joinMatch.js"></script>
   </head>
   <body>
     <header>
@@ -31,18 +33,18 @@
         <h1 class="text-center px-4 pt-3">Welcome to Quincinnati <span id="playerUsername">Player A</span>!</h1>
         <h3 class="font-weight-bold">Start a Match</h3>
         <p class="text-center px-4">Share your Game ID with your friends to play with them!</p>
-        <form class="mb-4 px-3" method="get" action="play.html">
+        <section class="mb-4 px-3">
           <label for="gameID">Game ID</label>
-          <input type="text" class="form-control" id="gameID" />
-          <button type="submit" class="btn btn-primary">Start Match</button>
-        </form>
+          <input type="text" class="form-control" id="startGameID" />
+          <button type="submit" class="btn btn-primary" onclick="startMatch()">Start Match</button>
+        </section>
         <h3 class="font-weight-bold">Join a Match</h3>
         <p class="text-center px-4">Your friend shared a Game ID with you? Put it here to play with them! Or you can leave it blank to join the public match!</p>
-        <form class="mb-4 px-3" method="get" action="play.html">
+        <section class="mb-4 px-3" method="get" action="play.html">
             <label for="gameID">Game ID</label>
-            <input type="text" class="form-control" id="gameID" />
-          <button type="submit" class="btn btn-primary pl-2">Join Match</button>
-        </form>
+            <input type="text" class="form-control" id="joinGameID" />
+          <button type="submit" class="btn btn-primary pl-2" onclick="joinMatch()">Join Match</button>
+        </section>
       </main>
 
       <footer>
