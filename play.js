@@ -12,6 +12,8 @@ let populationCap = 0;
 function runClock() {
     const playerNameEl = document.querySelector('#playerUsername');
     playerNameEl.textContent = getPlayerName();
+    const gameIDEl = document.querySelector('#gameID');
+    gameIDEl.textContent = getGameID();
     setInterval(updateStats, 1500);
 }
 
@@ -34,11 +36,14 @@ function updateStats() {
     money += stores * Math.ceil(Math.pow(population, .1));
 
     checkPopulation();
+    growCityHall();
 
     document.getElementById("populationTotal").innerHTML = population;
     document.getElementById("moneyTotal").innerHTML = money;
     document.getElementById("foodTotal").innerHTML = food;
     document.getElementById("powerTotal").innerHTML = power;
+
+    updateProgressBar();
 }
 
 function houseClick() {
@@ -110,6 +115,29 @@ function farmClick() {
 }
 
 function getPlayerName() {
-    return localStorage.getItem('userName') ?? 'Mystery player';
+    let temp = localStorage.getItem('userName');
+    if (temp === null || temp == "") {
+        return "Mystery Player";
+    }
+    return temp;
+}
+function getGameID() {
+    let temp = localStorage.getItem('gameID');
+    if (temp === null || temp == "") {
+        return 'Public match';
+    }
+    return temp;
 }
 
+function updateProgressBar() {
+    let temp = document.getElementById("progressBar").value;
+    temp = population;
+    document.getElementById("progressBar").value = temp;
+}
+
+function growCityHall() {
+    const image = document.getElementById("cityHall");
+    image.style.width = ((population / 10000) * 100 + 107) + "px";
+}
+
+runClock();
