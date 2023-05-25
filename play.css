@@ -24,7 +24,7 @@ main {
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
   /* leaderboard */
   #leaderboard {
     color: white;
@@ -132,6 +132,16 @@ main {
     margin-bottom: 0;
   }
   
+  #chatInput {
+    background-color: rgba(94, 161, 255, 0.45);
+    border: inset rgba(206, 226, 255, 0.45) 1px;
+    color: white;
+    outline: none;
+    border-radius: .2em;
+  }
+  #chatInput:focus {
+    outline: rgba(81, 153, 255, 0.882) solid 1px;
+  }
   
   /* cityStats and buyBuilding */
   #cityStats,
@@ -172,6 +182,9 @@ main {
     margin: 10px;
     border-radius: 6px;
     height: 35px;
+  }
+  #buyBuilding button:active {
+    background-color: #696d7a;
   }
 
   @media (orientation: portrait) {
