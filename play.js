@@ -10,6 +10,8 @@ let power = 10;
 let populationCap = 0;
 
 function runClock() {
+    const playerNameEl = document.querySelector('#playerUsername');
+    playerNameEl.textContent = getPlayerName();
     setInterval(updateStats, 1500);
 }
 
@@ -106,3 +108,8 @@ function farmClick() {
     const nextCost = Math.floor(20 * Math.pow(1.1, farms));
     document.getElementById("farmCost").innerHTML = nextCost;
 }
+
+function getPlayerName() {
+    return localStorage.getItem('userName') ?? 'Mystery player';
+}
+
