@@ -73,22 +73,36 @@
         </section>
 
         <section id="cityStats">
-          <p>Population: 5000 | Money: $1000</p>
+          <p>
+            Population: <span id="populationTotal">0</span>
+             | Money: $<span id="moneyTotal">1000</span>
+             | Power: <span id="powerTotal">10</span>
+             | Food: <span id="foodTotal">100</span>
+             || Houses: <span id="houseCounter">0</span>
+             | Stores: <span id="storeCounter">0</span>
+             | Factories: <span id="factoryCounter">0</span>
+             | Farms: <span id="farmCounter">0</span>
+            </p>
+            
       
           <section id="buyBuilding">
             <p>Buy Buildings:</p>
-            <button>
-              Buy House <span id="houseCounter">0</span>
+            <button onclick="houseClick()">
+              Buy House $<span id="houseCost">10</span>
             </button>
             <img src="images/blueHouse.png" alt="house" width="50"></image>
-            <button>
-              Buy Store <span id="storeCounter">0</span>
+            <button onclick="storeClick(1)">
+              Buy Store $<span id="storeCost">15</span>
             </button>
             <img src="images/store.png" alt="store" width="50"></image>
-            <button>
-              Buy Factory <span id="factoryCounter">0</span>
+            <button onclick="factoryClick(1)">
+              Buy Factory $<span id="factoryCost">100</span>
             </button>
             <img src="images/factory.png" alt="factory" width="50"></image>
+            <button onclick="farmClick(1)">
+              Buy Farm $<span id="farmCost">20</span>
+            </button>
+            <img src="images/farm.png" alt="farm" width="50"></image>
           </section>
         </section>
       </main>
@@ -100,6 +114,6 @@
       </footer>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
+      <script src="play.js"></script>
   </body>
 </html>
