@@ -244,21 +244,34 @@ function addFakeLeaders(user) {
     Array.from(list.getElementsByTagName('li'))
       .slice(5)
       .forEach((item) => item.remove());
-  }
+}
 
-  
-  
-  
-  
-  
-  
-  
-  function addFakeLeadersWithDelay(fakeUser, delay) {
+function addFakeLeadersWithDelay(fakeUser, delay) {
     setTimeout(function() {
-      addFakeLeaders(fakeUser);
+    addFakeLeaders(fakeUser);
     }, delay);
-  }
+}
+
+addFakeLeadersWithDelay(fakeUser1, 4000);
+addFakeLeadersWithDelay(fakeUser2, 10000);
+addFakeLeadersWithDelay(fakeUser3, 20000);
+
+function insertChatMessages() {
+    const chatMessages = [
+      "Player A: I'm the best",
+      "Player B: ur a noob",
+      "Player C: I love this game!"
+    ];
   
-  addFakeLeadersWithDelay(fakeUser1, 4000);
-  addFakeLeadersWithDelay(fakeUser2, 10000);
-  addFakeLeadersWithDelay(fakeUser3, 20000);
+    const chatContainer = document.querySelector('#playerChat .content-inner');
+    const chatInput = document.querySelector('#chatInput');
+  
+    chatMessages.forEach((message, index) => {
+      setTimeout(() => {
+        const pElement = document.createElement('p');
+        pElement.textContent = message;
+        chatContainer.insertBefore(pElement, chatInput);
+      }, (index + 1) * 5000); // Delay each insertion by 5 seconds (5000 milliseconds)
+    });
+}
+setTimeout(insertChatMessages, 5000);
