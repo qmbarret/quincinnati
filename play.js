@@ -1,116 +1,121 @@
-let houses = 0;
-let stores = 0;
-let factories = 0;
-let farms = 0;
-let population = 0;
-let food = 100;
-let money = 1000;
-let power = 10;
+const allGameData = {
+    gameID: "",
+    userName: "",
+    gameStats: {
+        houses: 0,
+        factories: 0,
+        stores: 0,
+        farms: 0,
+        population: 0,
+        food: 100,
+        money: 1000,
+        power: 10,
+        populationCap: 0
+    }
+}
 
-let populationCap = 0;
-
-function runClock() {
+function startClock() {
     const playerNameEl = document.querySelector('#playerUsername');
     playerNameEl.textContent = getPlayerName();
+    allGameData.userName = getPlayerName();
     const gameIDEl = document.querySelector('#gameID');
     gameIDEl.textContent = getGameID();
+    allGameData.gameID = getGameID();
+    updateLeaderboard();
     setInterval(updateStats, 1500);
 }
 
 function checkPopulation() {
-    if (population != populationCap && food > 0) {
-        if (food > populationCap - population) {
-            food -= populationCap - population;
-            population = populationCap;
+    if (allGameData.gameStats.population != allGameData.gameStats.populationCap && allGameData.gameStats.food > 0) {
+        if (allGameData.gameStats.food > allGameData.gameStats.populationCap - allGameData.gameStats.population) {
+            allGameData.gameStats.food -= allGameData.gameStats.populationCap - allGameData.gameStats.population;
+            allGameData.gameStats.population = allGameData.gameStats.populationCap;
         } else {
-            population = population + food;
-            food = 0;
+            allGameData.gameStats.population = allGameData.gameStats.population + allGameData.gameStats.food;
+            allGameData.gameStats.food = 0;
         }
-        document.getElementById("populationTotal").innerHTML = population;
-        document.getElementById("foodTotal").innerHTML = food;
     }
 }
 
 function updateStats() {
     console.log('Ran clock for 1 sec!');
-    money += stores * Math.ceil(Math.pow(population, .1));
+    allGameData.gameStats.money += allGameData.gameStats.stores * Math.ceil(Math.pow(allGameData.gameStats.population, .1));
 
     checkPopulation();
     growCityHall();
 
+    updateUserNumbers();
+    updateProgressBar();
+    updateLeaderboard();
+}
+
+function updateUserNumbers() {
+    const {houses, factories, stores, farms, population, food, money, power, populationCap} = allGameData.gameStats;
     document.getElementById("populationTotal").innerHTML = population;
     document.getElementById("moneyTotal").innerHTML = money;
     document.getElementById("foodTotal").innerHTML = food;
     document.getElementById("powerTotal").innerHTML = power;
-
-    updateProgressBar();
+    document.getElementById("houseCounter").innerHTML = houses;
+    document.getElementById("factoryCounter").innerHTML = factories;
+    document.getElementById("storeCounter").innerHTML = stores;
+    document.getElementById("farmCounter").innerHTML = farms;
+    document.getElementById("popCap").innerHTML = populationCap;
 }
 
 function houseClick() {
-    const houseCost = Math.floor(10 * Math.pow(1.1, houses));
-    if (money >= houseCost && power > 0) {
-        houses += 1;
-        power -= 1;
-        money = money - houseCost;
-        populationCap += Math.floor(50 * Math.pow(1.01, Math.ceil((houses / 10))));
+    const houseCost = Math.floor(10 * Math.pow(1.1, allGameData.gameStats.houses));
+    if (allGameData.gameStats.money >= houseCost && allGameData.gameStats.power > 0) {
+        allGameData.gameStats.houses += 1;
+        allGameData.gameStats.power -= 1;
+        allGameData.gameStats.money = allGameData.gameStats.money - houseCost;
+        allGameData.gameStats.populationCap += Math.floor(50 * Math.pow(1.01, Math.ceil((allGameData.gameStats.houses / 10))));
         checkPopulation();
         
-        document.getElementById("houseCounter").innerHTML = houses;
-        document.getElementById("populationTotal").innerHTML = population;
-        document.getElementById("moneyTotal").innerHTML = money;
-        document.getElementById("powerTotal").innerHTML = power;
+        updateUserNumbers();
     };
-    const nextCost = Math.floor(10 * Math.pow(1.1, houses));
+    const nextCost = Math.floor(10 * Math.pow(1.1, allGameData.gameStats.houses));
     document.getElementById("houseCost").innerHTML = nextCost;
     
 }
 
 function storeClick() {
-    const storeCost = Math.floor(15 * Math.pow(1.1, stores));
-    if (money >= storeCost && power > 0) {
-        stores += 1;
-        power -= 1;
-        money = money - storeCost;
+    const storeCost = Math.floor(15 * Math.pow(1.1, allGameData.gameStats.stores));
+    if (allGameData.gameStats.money >= storeCost && allGameData.gameStats.power > 0) {
+        allGameData.gameStats.stores += 1;
+        allGameData.gameStats.power -= 1;
+        allGameData.gameStats.money = allGameData.gameStats.money - storeCost;
         
-        document.getElementById("storeCounter").innerHTML = stores;
-        document.getElementById("moneyTotal").innerHTML = money;
-        document.getElementById("powerTotal").innerHTML = power;
+        updateUserNumbers();
     };
-    const nextCost = Math.floor(15 * Math.pow(1.1, stores));
+    const nextCost = Math.floor(15 * Math.pow(1.1, allGameData.gameStats.stores));
     document.getElementById("storeCost").innerHTML = nextCost;
 }
 
 function factoryClick() {
-    const factoryCost = Math.floor(100 * Math.pow(1.8, factories));
-    if (money >= factoryCost) {
-        factories += 1;
-        power += 40;
-        money = money - factoryCost;
+    const factoryCost = Math.floor(100 * Math.pow(1.8, allGameData.gameStats.factories));
+    if (allGameData.gameStats.money >= factoryCost) {
+        allGameData.gameStats.factories += 1;
+        allGameData.gameStats.power += 40;
+        allGameData.gameStats.money = allGameData.gameStats.money - factoryCost;
         
-        document.getElementById("factoryCounter").innerHTML = factories;
-        document.getElementById("moneyTotal").innerHTML = money;
-        document.getElementById("powerTotal").innerHTML = power;
+        updateUserNumbers();
     };
-    const nextCost = Math.floor(100 * Math.pow(1.8, factories));
+    const nextCost = Math.floor(100 * Math.pow(1.8, allGameData.gameStats.factories));
     document.getElementById("factoryCost").innerHTML = nextCost;
 }
 
 function farmClick() {
-    const farmCost = Math.floor(20 * Math.pow(1.1, farms));
-    if (money >= farmCost && power > 0) {
-        farms += 1;
-        power -= 1;
-        food += Math.ceil(50 * Math.pow(1.001, population));
-        money = money - farmCost;
+    const farmCost = Math.floor(20 * Math.pow(1.1, allGameData.gameStats.farms));
+    if (allGameData.gameStats.money >= farmCost && allGameData.gameStats.power > 0) {
+        allGameData.gameStats.farms += 1;
+        allGameData.gameStats.power -= 1;
+        allGameData.gameStats.food += Math.ceil(50 * Math.pow(1.001, allGameData.gameStats.population));
+        allGameData.gameStats.money = allGameData.gameStats.money - farmCost;
 
         checkPopulation();
-        
-        document.getElementById("farmCounter").innerHTML = farms;
-        document.getElementById("moneyTotal").innerHTML = money;
-        document.getElementById("powerTotal").innerHTML = power;
-        document.getElementById("foodTotal").innerHTML = food;
+        updateUserNumbers();
     };
-    const nextCost = Math.floor(20 * Math.pow(1.1, farms));
+    const nextCost = Math.floor(20 * Math.pow(1.1, allGameData.gameStats.farms));
     document.getElementById("farmCost").innerHTML = nextCost;
 }
 
@@ -131,13 +136,29 @@ function getGameID() {
 
 function updateProgressBar() {
     let temp = document.getElementById("progressBar").value;
-    temp = population;
+    temp = allGameData.gameStats.population;
     document.getElementById("progressBar").value = temp;
 }
 
 function growCityHall() {
     const image = document.getElementById("cityHall");
-    image.style.width = ((population / 10000) * 100 + 107) + "px";
+    image.style.width = ((allGameData.gameStats.population / 10000) * 100 + 107) + "px";
 }
 
-runClock();
+function createBoardItem(gameData) {
+    const item = document.createElement("li");
+    item.innerText = `${gameData.userName} - Population ${gameData.gameStats.population}`;
+    return item;
+}
+
+function updateLeaderboard() {
+  const list = document.querySelector('#leaderboard ol');
+  const newBoardItem = createBoardItem(allGameData);
+  if (list.firstChild) {
+    list.replaceChild(newBoardItem, list.firstChild);
+  } else {
+    list.appendChild(newBoardItem);
+  }
+}
+
+startClock();
