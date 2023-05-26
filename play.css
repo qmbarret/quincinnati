@@ -33,6 +33,7 @@ main {
     position: absolute;
     top: 11.22%;
     right: 0px;
+    padding: .5em 1em;
   }
 
   .myHeader {
@@ -227,6 +228,7 @@ main {
       position: absolute;
       top: 0;
       right: 0px;
+      padding: .5em 1em;
     }
     #playerChat {
       position: fixed;

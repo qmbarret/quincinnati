@@ -162,3 +162,60 @@ function updateLeaderboard() {
 }
 
 startClock();
+
+const fakeUser1 = {
+    gameID: "",
+    userName: "CoolGuy",
+    gameStats: {
+        houses: 10,
+        factories: 10,
+        stores: 10,
+        farms: 10,
+        population: 10,
+        food: 100,
+        money: 1000,
+        power: 10,
+        populationCap: 10
+    }
+}
+
+const fakeUser2 = {
+    gameID: "",
+    userName: "AwesomeSauce",
+    gameStats: {
+        houses: 10,
+        factories: 10,
+        stores: 10,
+        farms: 10,
+        population: 30,
+        food: 100,
+        money: 1000,
+        power: 10,
+        populationCap: 10
+    }
+}
+
+const fakeUser3 = {
+    gameID: "",
+    userName: "qmbarret",
+    gameStats: {
+        houses: 10,
+        factories: 10,
+        stores: 10,
+        farms: 10,
+        population: 9999,
+        food: 100,
+        money: 1000,
+        power: 10,
+        populationCap: 10
+    }
+}
+
+function addFakeLeaders(user) {
+    const list = document.querySelector('#leaderboard ol');
+    const newBoardItem = createBoardItem(user);
+    list.appendChild(newBoardItem);
+}
+addFakeLeaders(fakeUser1);
+addFakeLeaders(fakeUser2);
+addFakeLeaders(fakeUser3);
