@@ -68,3 +68,97 @@ __Pull__ "pulls" any changes that have happened to the repository on a different
 22. <img src="https://github.com/qmbarret/quincinnati/assets/112978030/5cccaf12-b9ba-4955-ba3e-7819ec392402" width="30%" height="30%"> **burger fries taco shake noodles**
 23. <img src="https://github.com/qmbarret/quincinnati/assets/112978030/4240c1bf-823e-4dc6-b622-68a11c80cdc7" width="30%" height="30%"> **A D B**
 
+## Promises
+JavaScript executes as a single threaded application. You can asynchronously execute code with the use of a JavaScript `Promise`. Because the execution is asynchronous the promise object can be in one of three states at any given point in time.
+
+1. **pending** - Currently running asynchronously
+1. **fulfilled** - Completed successfully
+1. **rejected** - Failed to complete
+
+```js
+const delay = (msg, wait) => {
+  setTimeout(() => {
+    console.log(msg, wait);
+  }, 1000 * wait);
+};
+
+new Promise((resolve, reject) => {
+  // Code executing in the promise
+  for (let i = 0; i < 3; i++) {
+    delay('In promise', i);
+  }
+});
+
+// Code executing after the promise
+for (let i = 0; i < 3; i++) {
+  delay('After promise', i);
+}
+
+// OUTPUT:
+//   In promise 0
+//   After promise 0
+//   In promise 1
+//   After promise 1
+//   In promise 2
+//   After promise 2
+```
+
+### Resolving and rejecting
+
+Now that we know how to use a promise to execute asynchronously, we need to be able to set the state to `fulfilled` when things complete correctly, or to `rejected` when an error happens. The promise executor function takes two functions as parameters, `resolve` and `reject`. Calling `resolve` sets the promise to the `fulfilled` state, and calling `reject` sets the promise to the `rejected` state.
+
+Consider the following "coin toss" promise that waits ten seconds and then has a fifty percent chance of resolving or rejecting.
+
+```js
+const coinToss = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (Math.random() > 0.5) {
+      resolve('success');
+    } else {
+      reject('error');
+    }
+  }, 10000);
+});
+```
+
+If you log the coinToss promise object to the console immediately after calling the constructor, it will display that it is in the `pending` state.
+
+```js
+console.log(coinToss);
+// OUTPUT: Promise {<pending>}
+```
+
+If you then wait ten seconds and the log the coinToss promise object again, the state will either show as `fulfilled` or `rejected` depending upon the way the coin landed.
+
+```js
+console.log(coinToss);
+// OUTPUT: Promise {<fulfilled>}
+```
+
+### Then, catch, finally
+
+```js
+const coinToss = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (Math.random() > 0.1) {
+      resolve(Math.random() > 0.5 ? 'heads' : 'tails');
+    } else {
+      reject('fell off table');
+    }
+  }, 10000);
+});
+```
+```js
+coinToss
+  .then((result) => console.log(`Coin toss result: ${result}`))
+  .catch((err) => console.log(`Error: ${err}`))
+  .finally(() => console.log('Toss completed'));
+
+// OUTPUT:
+//    Coin toss result: tails
+//    Toss completed
+```
+
+### The observer pattern
+
+Promises are the standard way to do asynchronous processing in JavaScript, but they are not the only way. The `Observer` pattern, popularized by web programming frameworks such as `Angular`, use a model called `Observer`. The major difference between Observers and Promises is that Promises immediately begin to execute when the Promise is created, but Observers form a pipeline that you then pass an execution object into. This allows Observers to be reused, and the result of executing an Observable to be saved as a history of a particular execution.
