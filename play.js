@@ -48,6 +48,8 @@ function updateStats() {
     updateUserNumbers();
     updateProgressBar();
     updateLeaderboard();
+
+    saveStats(allGameData);
 }
 
 function updateUserNumbers() {
@@ -275,3 +277,8 @@ function insertChatMessages() {
     });
 }
 setTimeout(insertChatMessages, 5000);
+
+
+function saveStats(allGameData) {
+    localStorage.setItem('gameData', JSON.stringify(allGameData));
+}
