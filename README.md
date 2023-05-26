@@ -71,6 +71,13 @@ For this deliverable I styled the application into its possible final appearance
 
 ## JavaScript Deliverable
 
+For this deliverable I made my application functional to play a simple game and to have a functional leaderboard.
+
+- **login** - When you press enter on the login button it takes you to the findMatch page, and once a gameID is given it moves to the Play page.
+- **database** - Displayed the counts for the various resources and building counts. Currently this is being stored to the local storage, but it will be replaced with the database data later.
+- **WebSocket** - I used the setInterval function to periodically add information to the Leaderboard and to the Chat. It only adds three to each, but the Leaderboard does function with showing only the top 5 players. This will be replaced with WebSocket messages later and updating the Leaderboard from other live players.
+- **application logic** - You can only buy buildings if you have sufficient money for them. The population can't exceed the amount of food provided. Factories don't cost any power, just creates it. Stores produce money over time. The progress bar fills based off the current leader in the leaderboard.
+
 ## Service Deliverable
 
 ## DB Deliverable
