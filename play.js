@@ -22,6 +22,7 @@ function startClock() {
     gameIDEl.textContent = getGameID();
     allGameData.gameID = getGameID();
     updateLeaderboard();
+    updateProgressBar();
     setInterval(updateStats, 1500);
 }
 
@@ -135,10 +136,19 @@ function getGameID() {
 }
 
 function updateProgressBar() {
-    let temp = document.getElementById("progressBar").value;
-    temp = allGameData.gameStats.population;
-    document.getElementById("progressBar").value = temp;
+    const list = document.querySelector('#leaderboard ol');
+    const topPlayer = list.querySelector('li:first-child');
+    
+    if (topPlayer) {
+      const username = topPlayer.innerText.split(' - ')[0];
+      const population = parseInt(topPlayer.innerText.split(' - Population ')[1], 10);
+      
+      document.getElementById("progressBar").value = population;
+      document.getElementById("currentLeader").innerText = username;
+    }
 }
+  
+  
 
 function growCityHall() {
     const image = document.getElementById("cityHall");
@@ -152,13 +162,7 @@ function createBoardItem(gameData) {
 }
 
 function updateLeaderboard() {
-  const list = document.querySelector('#leaderboard ol');
-  const newBoardItem = createBoardItem(allGameData);
-  if (list.firstChild) {
-    list.replaceChild(newBoardItem, list.firstChild);
-  } else {
-    list.appendChild(newBoardItem);
-  }
+  addFakeLeaders(allGameData);
 }
 
 startClock();
@@ -187,11 +191,11 @@ const fakeUser2 = {
         factories: 10,
         stores: 10,
         farms: 10,
-        population: 30,
+        population: 382,
         food: 100,
         money: 1000,
         power: 10,
-        populationCap: 10
+        populationCap: 400
     }
 }
 
@@ -211,11 +215,50 @@ const fakeUser3 = {
     }
 }
 
+
 function addFakeLeaders(user) {
     const list = document.querySelector('#leaderboard ol');
+    const existingItems = Array.from(list.getElementsByTagName('li')).filter((item) => {
+      const username = item.innerText.split(' - ')[0];
+      return username === user.userName;
+    });
+  
+    if (existingItems.length > 0) {
+      existingItems.forEach((existingItem) => {
+        existingItem.remove();
+      });
+    }
+  
     const newBoardItem = createBoardItem(user);
     list.appendChild(newBoardItem);
-}
-addFakeLeaders(fakeUser1);
-addFakeLeaders(fakeUser2);
-addFakeLeaders(fakeUser3);
+  
+    Array.from(list.getElementsByTagName('li'))
+      .sort((a, b) => {
+        const populationA = parseInt(a.innerText.split(' - Population ')[1], 10);
+        const populationB = parseInt(b.innerText.split(' - Population ')[1], 10);
+        return populationB - populationA;
+      })
+      .slice(0, 5)
+      .forEach((item) => list.appendChild(item));
+  
+    Array.from(list.getElementsByTagName('li'))
+      .slice(5)
+      .forEach((item) => item.remove());
+  }
+
+  
+  
+  
+  
+  
+  
+  
+  function addFakeLeadersWithDelay(fakeUser, delay) {
+    setTimeout(function() {
+      addFakeLeaders(fakeUser);
+    }, delay);
+  }
+  
+  addFakeLeadersWithDelay(fakeUser1, 4000);
+  addFakeLeadersWithDelay(fakeUser2, 10000);
+  addFakeLeadersWithDelay(fakeUser3, 20000);
