@@ -80,6 +80,14 @@ For this deliverable I made my application functional to play a simple game and 
 
 ## Service Deliverable
 
+For this deliverable I created an HTTP service to host my frontend and provide backend endpoints.
+
+- **Node.js/Express HTTP service** - Done!
+- **Static middleware for frontend** - Done!
+- **Calls to third party endpoints** - Added random quotes about work to the About page. Currently only picks from a pool of 20, but I'll try to make it more random later.
+- **Backend service endpoints** - Added placeholder endpoints for login and register, currently not being called. Endpoints for updating the leaderboard and for saving the game and loading the game on entering the play page.
+- **Frontend calls service endpoints** - I did this using the fetch function for leaderboard and game-progress.
+
 ## DB Deliverable
 
 ## Login Deliverable
