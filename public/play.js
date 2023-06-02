@@ -157,14 +157,10 @@ function growCityHall() {
     image.style.width = ((allGameData.gameStats.population / 10000) * 100 + 107) + "px";
 }
 
-function createBoardItem(gameData) {
+function createBoardItem(boardData) {
     const item = document.createElement("li");
-    item.innerText = `${gameData.userName} - Population ${gameData.gameStats.population}`;
+    item.innerText = `${boardData.userName} - Population ${boardData.population}`;
     return item;
-}
-
-function updateLeaderboard() {
-  addFakeLeaders(allGameData);
 }
 
 startClock();
@@ -218,39 +214,34 @@ const fakeUser3 = {
 }
 
 
-function addFakeLeaders(user) {
-    const list = document.querySelector('#leaderboard ol');
-    const existingItems = Array.from(list.getElementsByTagName('li')).filter((item) => {
-      const username = item.innerText.split(' - ')[0];
-      return username === user.userName;
-    });
+async function updateLeaderboard(user = allGameData) {
+    try {
+        const response = await fetch('/api/leaderboard', {
+          method: 'POST',
+          headers: {'content-type': 'application/json'},
+          body: JSON.stringify(user),
+        });
   
-    if (existingItems.length > 0) {
-      existingItems.forEach((existingItem) => {
-        existingItem.remove();
-      });
+        // Store what the service gave us as the high scores
+        const leaderboard = await response.json();
+
+        const leaderboardList = document.querySelector('#leaderboard ol');
+        leaderboardList.innerHTML = '';
+
+        for (const entry of leaderboard) {
+          const boardItem = createBoardItem(entry);
+          leaderboardList.appendChild(boardItem);
+        }
+
+        localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+      } catch {
+        console.log("Leaderboard issue");
+      }
     }
-  
-    const newBoardItem = createBoardItem(user);
-    list.appendChild(newBoardItem);
-  
-    Array.from(list.getElementsByTagName('li'))
-      .sort((a, b) => {
-        const populationA = parseInt(a.innerText.split(' - Population ')[1], 10);
-        const populationB = parseInt(b.innerText.split(' - Population ')[1], 10);
-        return populationB - populationA;
-      })
-      .slice(0, 5)
-      .forEach((item) => list.appendChild(item));
-  
-    Array.from(list.getElementsByTagName('li'))
-      .slice(5)
-      .forEach((item) => item.remove());
-}
 
 function addFakeLeadersWithDelay(fakeUser, delay) {
     setTimeout(function() {
-    addFakeLeaders(fakeUser);
+        updateLeaderboard(fakeUser);
     }, delay);
 }
 
