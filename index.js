@@ -12,6 +12,26 @@ app.use(express.static('public'));
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+let currUser = "";
+// Placeholder for register
+apiRouter.post('/auth/register', async (req, res) => {
+    if (req.body.userName === currUser) {
+        res.status(409).send({ msg: 'Current user' });
+    } else {
+        currUser = req.body.userName;
+        res.send(currUser);
+    }
+});
+// Placeholder for login
+apiRouter.post('/auth/login', async (req, res) => {
+    if (req.body.userName === currUser) {
+        res.status(409).send({ msg: 'Current user' });
+    } else {
+        currUser = req.body.userName;
+        res.send(currUser);
+    }
+});
+
 // Update Leaderboard
 apiRouter.post('/leaderboard', (req, res) => {
     leaderboard = updateGameData(req.body, leaderboard);
