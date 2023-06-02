@@ -19,32 +19,18 @@ apiRouter.post('/leaderboard', (req, res) => {
     res.send(leaderboard);
 });
 
-let chatMessages = [];
-// Endpoint to receive chat messages
-apiRouter.post('/chat', (req, res) => {
-  const message = req.body.message;
-  chatMessages.push(message);
-  res.send(chatMessages);
-});
-
-// Endpoint to get chat messages
-apiRouter.get('/chat', (req, res) => {
-  res.send(chatMessages);
-});
-
+let gameData = {};
 // Endpoint to save game progress
 apiRouter.post('/game-progress', (req, res) => {
-    const gameData = req.body;
+    gameData = req.body;
+    console.log(gameData);
     // Save the game data to the database or storage
-    // Example: gameData.userName, gameData.gameStats, etc.
-    res.sendStatus(200);
+    res.send(gameData);
   });
   
 // Endpoint to load game progress
 apiRouter.get('/game-progress', (req, res) => {
-    // Retrieve the game data for the current user
-    // Example: const gameData = retrieveGameData(req.query.userId);
-    res.json(gameData);
+    res.send(gameData);
 });
 
 app.use(function (err, req, res, next) {

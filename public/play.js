@@ -150,7 +150,6 @@ function updateProgressBar() {
     }
 }
   
-  
 
 function growCityHall() {
     const image = document.getElementById("cityHall");
@@ -164,6 +163,7 @@ function createBoardItem(boardData) {
 }
 
 startClock();
+loadSave();
 
 const fakeUser1 = {
     gameID: "",
@@ -270,6 +270,36 @@ function insertChatMessages() {
 setTimeout(insertChatMessages, 5000);
 
 
-function saveStats(allGameData) {
-    localStorage.setItem('gameData', JSON.stringify(allGameData));
+async function saveStats(allGameData) {
+    try {
+        const response = await fetch('/api/game-progress', {
+          method: 'POST',
+          headers: {'content-type': 'application/json'},
+          body: JSON.stringify(allGameData),
+        });
+  
+        // Store what the service gave us as the high scores
+        const newGameData = await response.json();
+
+        localStorage.setItem('gameData', JSON.stringify(newGameData));
+    } catch {
+        console.log("Game progress issue");
+      }
 }
+async function loadSave() {
+    try {
+      const response = await fetch('/api/game-progress', {
+        method: 'GET',
+        headers: {'content-type': 'application/json'},
+      });
+      if (response.ok) { // Check if the response was successful
+        const data = await response.json(); // Parse the response data
+        allGameData.gameStats = data.gameStats; // Assign the data to allGameData
+      } else {
+        throw new Error('Error loading game progress'); // Throw an error if the response is not successful
+      }
+    } catch (error) {
+      console.log("Load save issue:", error); // Include the error parameter to access the error object
+    }
+  }
+  
