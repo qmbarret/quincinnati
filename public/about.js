@@ -1,17 +1,19 @@
 function displayQuote() {
-    fetch('https://quote-garden.herokuapp.com/api/v3/quotes/business')
+    fetch('https://api.quotable.io/search/quotes?query=work')
         .then(response => response.json())
         .then(data => {
-            const quote = data.data[0].quoteText;
-            const author = data.data[0].quoteAuthor;
-            
             const containerEl = document.querySelector('#quote');
+
             const quoteEl = document.createElement('p');
-            const authorEl = document.createElement('p');
-            quoteEl.textContent = data.content;
-            authorEl.textContent = data.author;
+            quoteEl.classList.add('quote');
+
+            const { results } = data;
+            const randomIndex = Math.floor(Math.random() * results.length);
+            const quote = results[randomIndex];
+
+            quoteEl.textContent = `${quote.content}   -${quote.author}`;
+
             containerEl.appendChild(quoteEl);
-            containerEl.appendChild(authorEl);
             
         })
         .catch(error => {
