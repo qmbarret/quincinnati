@@ -300,6 +300,10 @@ async function loadSave() {
       }
     } catch (error) {
       console.log("Load save issue:", error); // Include the error parameter to access the error object
+    } finally {
+        updateUserNumbers();
+        updateProgressBar();
+        updateLeaderboard();
     }
   }
   
