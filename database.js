@@ -35,21 +35,23 @@ async function addGameData(gameData) {
     }
 }
   
-  
-  function getLeaderboard() {
-    const query = { population: { $gt: 0} };
+
+async function getLeaderboard() {
+    const query = { 'gameStats.population': { $gte: 0 } };
     const options = {
-      sort: { score: -1 },
-      limit: 5,
+        sort: { 'gameStats.population': -1 },
+        limit: 5,
     };
     const cursor = gameCollection.find(query, options);
-    return cursor.toArray();
-  }
+    const leaderboard = await cursor.toArray();
+    return leaderboard;
+}
+  
 
-  function getGameData(checkID) {
+function getGameData(checkID) {
     const query = { gameID: {checkID} };
     return gameCollection.find(query);
-  }
+}
   
   module.exports = { addGameData, getLeaderboard, getGameData };
   

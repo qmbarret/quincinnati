@@ -158,7 +158,7 @@ function growCityHall() {
 
 function createBoardItem(boardData) {
     const item = document.createElement("li");
-    item.innerText = `${boardData.userName} - Population ${boardData.population}`;
+    item.innerText = `${boardData.userName} - Population ${boardData.gameStats.population}`;
     return item;
 }
 
@@ -214,16 +214,11 @@ const fakeUser3 = {
 }
 
 
-async function updateLeaderboard(user = allGameData) {
+async function updateLeaderboard() {
+    let leaderboard = [];
     try {
-        const response = await fetch('/api/leaderboard', {
-          method: 'POST',
-          headers: {'content-type': 'application/json'},
-          body: JSON.stringify(user),
-        });
-  
-        // Store what the service gave us as the high scores
-        const leaderboard = await response.json();
+        const response = await fetch('/api/leaderboard');
+        leaderboard = await response.json();
 
         const leaderboardList = document.querySelector('#leaderboard ol');
         leaderboardList.innerHTML = '';
@@ -237,7 +232,7 @@ async function updateLeaderboard(user = allGameData) {
       } catch {
         console.log("Leaderboard issue");
       }
-    }
+}
 
 function addFakeLeadersWithDelay(fakeUser, delay) {
     setTimeout(function() {
