@@ -1,7 +1,8 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const app = express();
-
+const DB = require('./database.js');
+console.log("hi")
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 app.use(cookieParser());
@@ -56,9 +57,7 @@ let gameData = {
 };
 // Endpoint to save game progress
 apiRouter.post('/game-progress', (req, res) => {
-    gameData = req.body;
-    //console.log(gameData);
-    // Save the game data to the database or storage
+    const gameData = DB.addGameData(req.body);
     res.send(gameData);
   });
   

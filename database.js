@@ -17,9 +17,24 @@ const gameCollection = db.collection('gameData');
 
 
 async function addGameData(gameData) {
-    const result = await gameCollection.insertOne(gameData);
-    return result;
-  }
+    const query = {
+      userName: gameData.userName,
+      gameID: gameData.gameID
+    };
+  
+    const existingGame = await gameCollection.findOne(query);
+  
+    if (existingGame) {
+      // Game already exists, update the information
+      const updateResult = await gameCollection.updateOne(query, { $set: gameData });
+      return updateResult;
+    } else {
+      // Game does not exist, add it to the collection
+      const insertResult = await gameCollection.insertOne(gameData);
+      return insertResult;
+    }
+}
+  
   
   function getLeaderboard() {
     const query = { population: { $gt: 0} };
