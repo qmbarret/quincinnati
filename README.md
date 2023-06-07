@@ -90,6 +90,12 @@ For this deliverable I created an HTTP service to host my frontend and provide b
 
 ## DB Deliverable
 
+For this deliverable I stored and retrieved data from MongoDB.
+
+- **MongoDB Atlas database created** - Done!
+- **Endpoints for data** - My endpoints now process the data and send it to Mongo. It also pulls that data back down upon loading the page, keeping game data persistent between loads.
+- **Stores data in MongoDB** - Done!
+
 ## Login Deliverable
 
 ## WebSocket Deliverable
