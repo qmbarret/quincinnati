@@ -2,7 +2,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const app = express();
 const DB = require('./database.js');
-console.log("hi")
+
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 app.use(cookieParser());
@@ -33,10 +33,9 @@ apiRouter.post('/auth/login', async (req, res) => {
     }
 });
 
-// Update Leaderboard
-apiRouter.post('/leaderboard', (req, res) => {
-    leaderboard = updateGameData(req.body, leaderboard);
-    //console.log(leaderboard);
+// get Leaderboard
+apiRouter.get('/leaderboard', async (_req, res) => {
+    const leaderboard = await DB.getLeaderboard();
     res.send(leaderboard);
 });
 
