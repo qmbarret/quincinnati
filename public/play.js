@@ -283,11 +283,16 @@ async function saveStats(allGameData) {
 }
 async function loadSave() {
     try {
-        const response = await fetch('/api/game-progress', {
-        method: 'GET',
+        const gameInfo = {
+            gameID: getGameID(),
+            userName: getPlayerName()
+        };
+        const response = await fetch('/api/load-progress', {
+        method: 'POST',
         headers: {'content-type': 'application/json'},
+        body: JSON.stringify(gameInfo),
       });
-      if (response.ok && response.userName === allGameData.userName && response.gameID === allGameData.gameID) { // Check if the response was successful
+      if (response.ok) { // Check if the response was successful
         const data = await response.json(); // Parse the response data
         allGameData.gameStats = data.gameStats; // Assign the data to allGameData
       } else {

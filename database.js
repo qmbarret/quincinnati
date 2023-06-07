@@ -48,10 +48,17 @@ async function getLeaderboard() {
 }
   
 
-function getGameData(checkID) {
-    const query = { gameID: {checkID} };
-    return gameCollection.find(query);
-}
+async function getGameData(gameInfo) {
+    const query = {
+      userName: gameInfo.userName,
+      gameID: gameInfo.gameID
+    };
+    
+    const result = await gameCollection.findOne(query);
+
+    return result;
+  }
+  
   
   module.exports = { addGameData, getLeaderboard, getGameData };
   

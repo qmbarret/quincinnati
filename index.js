@@ -46,8 +46,8 @@ apiRouter.post('/game-progress', (req, res) => {
   });
   
 // Endpoint to load game progress
-apiRouter.get('/game-progress', (req, res) => {
-    res.send(gameData);
+apiRouter.post('/load-progress', async (req, res) => {
+    res.send(await DB.getGameData(req.body));
 });
 
 app.use(function (err, req, res, next) {
@@ -61,37 +61,3 @@ app.use((_req, res) => {
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
-
-let leaderboard = [];
-
-function updateGameData(gameData, leaderboard) {
-  const boardStats = {
-    userName: gameData.userName,
-    population: gameData.gameStats.population,
-  };
-
-  if (leaderboard.length === 0) {
-    leaderboard.push(boardStats);
-  } else {
-    let found = false;
-    for (let i = 0; i < leaderboard.length; i++) {
-      if (leaderboard[i].userName === boardStats.userName) {
-        leaderboard[i].population = boardStats.population;
-        found = true;
-        break;
-      }
-    }
-
-    if (!found) {
-      leaderboard.push(boardStats);
-    }
-  }
-
-  leaderboard.sort((a, b) => b.population - a.population);
-  if (leaderboard.length > 5) {
-    leaderboard.length = 5;
-  }
-
-  return leaderboard;
-}
-
