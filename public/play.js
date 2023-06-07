@@ -162,8 +162,8 @@ function createBoardItem(boardData) {
     return item;
 }
 
-startClock();
 loadSave();
+startClock();
 
 const fakeUser1 = {
     gameID: "",
@@ -236,7 +236,7 @@ async function updateLeaderboard() {
 
 function addFakeLeadersWithDelay(fakeUser, delay) {
     setTimeout(function() {
-        updateLeaderboard(fakeUser);
+        saveStats(fakeUser);
     }, delay);
 }
 

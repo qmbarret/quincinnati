@@ -39,21 +39,6 @@ apiRouter.get('/leaderboard', async (_req, res) => {
     res.send(leaderboard);
 });
 
-let gameData = {
-    gameID: "",
-    userName: "",
-    gameStats: {
-        houses: 0,
-        factories: 0,
-        stores: 0,
-        farms: 0,
-        population: 0,
-        food: 100,
-        money: 1000,
-        power: 10,
-        populationCap: 0
-    }
-};
 // Endpoint to save game progress
 apiRouter.post('/game-progress', (req, res) => {
     const gameData = DB.addGameData(req.body);
