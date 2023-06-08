@@ -1,7 +1,10 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
+const bcrypt = require('bcrypt');
 const app = express();
 const DB = require('./database.js');
+
+const authCookieName = 'token';
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
@@ -13,25 +16,38 @@ app.use(express.static('public'));
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-let currUser = "";
-// Placeholder for register
 apiRouter.post('/auth/register', async (req, res) => {
-    if (req.body.userName === currUser) {
-        res.status(409).send({ msg: 'Current user' });
-    } else {
-        currUser = req.body.userName;
-        res.send(currUser);
-    }
+    if (await DB.getUser(req.body.email)) {
+        res.status(409).send({ msg: 'Existing user' });
+      } else {
+        const user = await DB.createUser(req.body.email, req.body.password);
+    
+        // Set the cookie
+        setAuthCookie(res, user.token);
+    
+        res.send({
+          id: user._id,
+        });
+      }
 });
-// Placeholder for login
+
 apiRouter.post('/auth/login', async (req, res) => {
-    if (req.body.userName === currUser) {
-        res.status(409).send({ msg: 'Current user' });
-    } else {
-        currUser = req.body.userName;
-        res.send(currUser);
+    const user = await DB.getUser(req.body.email);
+  if (user) {
+    if (await bcrypt.compare(req.body.password, user.password)) {
+      setAuthCookie(res, user.token);
+      res.send({ id: user._id });
+      return;
     }
+  }
+  res.status(401).send({ msg: 'Unauthorized' });
 });
+
+// TODO: logout button
+apiRouter.delete('/auth/logout', (_req, res) => {
+    res.clearCookie(authCookieName);
+    res.status(204).end();
+  });
 
 // get Leaderboard
 apiRouter.get('/leaderboard', async (_req, res) => {
