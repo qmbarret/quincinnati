@@ -11,12 +11,12 @@ playerNameEl.textContent = getPlayerName();
 
 async function startMatch() {
     const gameID = document.querySelector("#startGameID");
-    loginOrCreate(`/api/game/start`, gameID);
+    startOrJoin(`/api/game/start`, gameID);
 }
   
 async function joinMatch() {
     const gameID = document.querySelector("#joinGameID");
-    loginOrCreate(`/api/game/join`, gameID);
+    startOrJoin(`/api/game/join`, gameID);
 }
   
 async function startOrJoin(endpoint, gameID) {
