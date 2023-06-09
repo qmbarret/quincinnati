@@ -21,7 +21,7 @@ apiRouter.post('/auth/register', async (req, res) => {
         res.status(409).send({ msg: 'Existing user' });
       } else {
         const user = await DB.createUser(req.body.username, req.body.password);
-    5
+
         // Set the cookie
         setAuthCookie(res, user.token);
     
@@ -48,6 +48,28 @@ apiRouter.delete('/auth/logout', (_req, res) => {
     res.clearCookie(authCookieName);
     res.status(204).end();
   });
+
+
+apiRouter.post('/game/start', async (req, res) => {
+    if (await DB.getGameID(req.body.gameID)) {
+        res.status(409).send({ msg: 'Existing GameID' });
+      } else {
+        const game = await DB.createMatch(req.body.gameID);
+    
+        res.send({
+          id: game._id,
+        });
+      }
+});
+
+apiRouter.post('/game/join', async (req, res) => {
+    const game = await DB.getGameID(req.body.gameID);
+    if (game) {
+        res.send({ id: gameID._id });
+        return;
+    }
+    res.status(401).send({ msg: 'No Match with that GameID' });
+});
 
 // get Leaderboard
 apiRouter.get('/leaderboard', async (_req, res) => {
