@@ -1,6 +1,6 @@
 const allGameData = {
     gameID: "",
-    userName: "",
+    username: "",
     gameStats: {
         houses: 0,
         factories: 0,
@@ -17,7 +17,7 @@ const allGameData = {
 function startClock() {
     const playerNameEl = document.querySelector('#playerUsername');
     playerNameEl.textContent = getPlayerName();
-    allGameData.userName = getPlayerName();
+    allGameData.username = getPlayerName();
     const gameIDEl = document.querySelector('#gameID');
     gameIDEl.textContent = getGameID();
     allGameData.gameID = getGameID();
@@ -123,7 +123,7 @@ function farmClick() {
 }
 
 function getPlayerName() {
-    let temp = localStorage.getItem('userName');
+    let temp = localStorage.getItem('username');
     if (temp === null || temp == "") {
         return "Mystery Player";
     }
@@ -158,7 +158,7 @@ function growCityHall() {
 
 function createBoardItem(boardData) {
     const item = document.createElement("li");
-    item.innerText = `${boardData.userName} - Population ${boardData.gameStats.population}`;
+    item.innerText = `${boardData.username} - Population ${boardData.gameStats.population}`;
     return item;
 }
 
@@ -167,7 +167,7 @@ startClock();
 
 const fakeUser1 = {
     gameID: "",
-    userName: "CoolGuy",
+    username: "CoolGuy",
     gameStats: {
         houses: 10,
         factories: 10,
@@ -183,7 +183,7 @@ const fakeUser1 = {
 
 const fakeUser2 = {
     gameID: "",
-    userName: "AwesomeSauce",
+    username: "AwesomeSauce",
     gameStats: {
         houses: 10,
         factories: 10,
@@ -199,7 +199,7 @@ const fakeUser2 = {
 
 const fakeUser3 = {
     gameID: "",
-    userName: "qmbarret",
+    username: "qmbarret",
     gameStats: {
         houses: 10,
         factories: 10,
@@ -285,7 +285,7 @@ async function loadSave() {
     try {
         const gameInfo = {
             gameID: getGameID(),
-            userName: getPlayerName()
+            username: getPlayerName()
         };
         const response = await fetch('/api/load-progress', {
         method: 'POST',

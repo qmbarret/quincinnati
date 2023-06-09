@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const uuid = require('uuid');
 const config = require('./dbConfig.json');
 
-const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
+const url = `mongodb+srv://${config.username}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
 const db = client.db('quincinnati');
 const userCollection = db.collection('users');
@@ -53,7 +53,7 @@ async function createMatch(gameID) {
 
 async function addGameData(gameData) {
     const query = {
-      userName: gameData.userName,
+      username: gameData.username,
       gameID: gameData.gameID
     };
   
@@ -85,7 +85,7 @@ async function getLeaderboard() {
 
 async function getGameData(gameInfo) {
     const query = {
-      userName: gameInfo.userName,
+      username: gameInfo.username,
       gameID: gameInfo.gameID
     };
     

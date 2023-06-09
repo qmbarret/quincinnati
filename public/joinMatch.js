@@ -1,5 +1,5 @@
 function getPlayerName() {
-    let temp = localStorage.getItem('userName');
+    let temp = localStorage.getItem('username');
     if (temp === null || temp == "") {
         return "Mystery Player";
     }
