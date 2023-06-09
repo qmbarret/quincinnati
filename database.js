@@ -45,10 +45,10 @@ function getGameID(gameID) {
   return idCollection.findOne({ gameID: gameID });
 }
 
-async function startMatch(gameID) {
-  const game = { gameID: gameID };
-  await idCollection.insertOne(game);
-  return game;
+async function createMatch(gameID) {
+  const gameObject = { gameID }
+  await idCollection.insertOne(gameObject);
+  return gameObject;
 }
 
 async function addGameData(gameData) {
@@ -95,5 +95,5 @@ async function getGameData(gameInfo) {
   }
   
   
-  module.exports = { getUser, getUserByToken, createUser, getGameID, startMatch, addGameData, getLeaderboard, getGameData };
+  module.exports = { getUser, getUserByToken, createUser, getGameID, createMatch, addGameData, getLeaderboard, getGameData };
   

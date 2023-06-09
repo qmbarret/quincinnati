@@ -65,7 +65,7 @@ apiRouter.post('/game/start', async (req, res) => {
 apiRouter.post('/game/join', async (req, res) => {
     const game = await DB.getGameID(req.body.gameID);
     if (game) {
-        res.send({ id: gameID._id });
+        res.send({ id: game._id });
         return;
     }
     res.status(401).send({ msg: 'No Match with that GameID' });

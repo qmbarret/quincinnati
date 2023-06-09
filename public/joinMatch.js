@@ -10,12 +10,12 @@ const playerNameEl = document.querySelector('#playerUsername');
 playerNameEl.textContent = getPlayerName();
 
 async function startMatch() {
-    const gameID = document.querySelector("#startGameID");
+    const gameID = document.querySelector("#startGameID")?.value;
     startOrJoin(`/api/game/start`, gameID);
 }
   
 async function joinMatch() {
-    const gameID = document.querySelector("#joinGameID");
+    const gameID = document.querySelector("#joinGameID")?.value;
     startOrJoin(`/api/game/join`, gameID);
 }
   
