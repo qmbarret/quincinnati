@@ -46,7 +46,7 @@ function appendMsg(cls, from, msg) {
 }
 
 // Send message on enter keystroke
-const input = document.querySelector('#new-msg');
+const input = document.querySelector('#chatInput');
 input.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     sendMessage();
