@@ -111,9 +111,9 @@ For this deliverable I added user registration and authentication as well as gam
 
 For this deliverable I made a little chat box for players to communicate with.
 
-- **Backend listens for WebSocket connection** - done!
-- **Frontend makes WebSocket connection** - done!
-- **Data sent over WebSocket connection** - done!
+- **Backend listens for WebSocket connection** - Done!
+- **Frontend makes WebSocket connection** - Done!
+- **Data sent over WebSocket connection** - Done!
 - **WebSocket data displayed** - All messages display in realtime
 
 ## React Deliverable
