@@ -17,17 +17,15 @@ socket.onmessage = async (event) => {
 // If the webSocket is closed then disable the interface
 socket.onclose = (event) => {
   appendMsg('system', 'Websocket', 'disconnected');
-  document.querySelector('#name-controls').disabled = true;
-  document.querySelector('#chat-controls').disabled = true;
 };
 
 // Send a message over the webSocket
 function sendMessage() {
-  const msgEl = document.querySelector('#new-msg');
+  const msgEl = document.querySelector('#chatInput');
   const msg = msgEl.value;
   if (!!msg) {
     appendMsg('me', 'Me', msg);
-    const name = document.querySelector('#my-name').value;
+    const name = document.querySelector('#playerUsername').value;
     socket.send(`{"name":"${name}", "msg":"${msg}"}`);
     msgEl.value = '';
   }
@@ -53,11 +51,4 @@ input.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     sendMessage();
   }
-});
-
-// Disable chat if no name provided
-const chatControls = document.querySelector('#chat-controls');
-const myName = document.querySelector('#my-name');
-myName.addEventListener('keyup', (e) => {
-  chatControls.disabled = myName.value === '';
 });
