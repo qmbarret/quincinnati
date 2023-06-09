@@ -8,6 +8,7 @@ const client = new MongoClient(url);
 const db = client.db('quincinnati');
 const userCollection = db.collection('users');
 const gameCollection = db.collection('gameData');
+const idCollection = db.collection('gameID');
 
 (async function testConnection() {
   await client.connect();
@@ -40,6 +41,15 @@ async function createUser(username, password) {
   return user;
 }
 
+function getGameID(gameID) {
+  return idCollection.findOne({ gameID: gameID });
+}
+
+async function startMatch(gameID) {
+  const game = { gameID: gameID };
+  await idCollection.insertOne(game);
+  return game;
+}
 
 async function addGameData(gameData) {
     const query = {
@@ -85,5 +95,5 @@ async function getGameData(gameInfo) {
   }
   
   
-  module.exports = { getUser, getUserByToken, createUser, addGameData, getLeaderboard, getGameData };
+  module.exports = { getUser, getUserByToken, createUser, getGameID, startMatch, addGameData, getLeaderboard, getGameData };
   
