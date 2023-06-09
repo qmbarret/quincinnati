@@ -25,7 +25,7 @@ function sendMessage() {
   const msg = msgEl.value;
   if (!!msg) {
     appendMsg('me', 'Me', msg);
-    const name = document.querySelector('#playerUsername').value;
+    const name = localStorage.getItem('username');
     socket.send(`{"name":"${name}", "msg":"${msg}"}`);
     msgEl.value = '';
   }
