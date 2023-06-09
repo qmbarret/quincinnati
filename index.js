@@ -17,11 +17,11 @@ var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 apiRouter.post('/auth/register', async (req, res) => {
-    if (await DB.getUser(req.body.email)) {
+    if (await DB.getUser(req.body.username)) {
         res.status(409).send({ msg: 'Existing user' });
       } else {
-        const user = await DB.createUser(req.body.email, req.body.password);
-    
+        const user = await DB.createUser(req.body.username, req.body.password);
+    5
         // Set the cookie
         setAuthCookie(res, user.token);
     
@@ -32,7 +32,7 @@ apiRouter.post('/auth/register', async (req, res) => {
 });
 
 apiRouter.post('/auth/login', async (req, res) => {
-    const user = await DB.getUser(req.body.email);
+    const user = await DB.getUser(req.body.username);
   if (user) {
     if (await bcrypt.compare(req.body.password, user.password)) {
       setAuthCookie(res, user.token);
@@ -77,3 +77,11 @@ app.use((_req, res) => {
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
+
+function setAuthCookie(res, authToken) {
+    res.cookie(authCookieName, authToken, {
+      secure: true,
+      httpOnly: true,
+      sameSite: 'strict',
+    });
+  }

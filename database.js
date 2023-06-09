@@ -85,5 +85,5 @@ async function getGameData(gameInfo) {
   }
   
   
-  module.exports = { addGameData, getLeaderboard, getGameData };
+  module.exports = { getUser, getUserByToken, createUser, addGameData, getLeaderboard, getGameData };
   

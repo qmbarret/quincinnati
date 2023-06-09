@@ -1,8 +1,8 @@
-async function loginUser() {
+async function login() {
     loginOrCreate(`/api/auth/login`);
   }
   
-  async function createUser() {
+  async function register() {
     loginOrCreate(`/api/auth/register`);
   }
   
