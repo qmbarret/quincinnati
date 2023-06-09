@@ -98,6 +98,15 @@ For this deliverable I stored and retrieved data from MongoDB.
 
 ## Login Deliverable
 
+For this deliverable I added user registration and authentication as well as gameID registration.
+
+- **User registration** - Creates a new account in the database.
+- **GameID registration** - Creates a new "match" in the database.
+- **Existing User** - Verifies the username and password from data stored in the database.
+- **Use MongoDB to store credentials** - Done!
+- **Restricts functionality** - You cannot play until you have logged in.
+
+
 ## WebSocket Deliverable
 
 ## React Deliverable
