@@ -1,3 +1,29 @@
+window.addEventListener('DOMContentLoaded', () => {
+    const username = localStorage.getItem('username');
+    const gameID = localStorage.getItem('gameID');
+  
+    if (username && gameID) {
+      setDisplay('block', 'block');
+    } else if (username) {
+      setDisplay('block', 'none');
+    } else {
+      setDisplay('none', 'none');
+    }
+  });
+  
+  function setDisplay(displayJoin, displayPlay) {
+    const joinEl = document.querySelector(`#joinMatch`);
+    const playEl = document.querySelector(`#playMatch`);
+  
+    if (joinEl) {
+      joinEl.style.display = displayJoin;
+    }
+    if (playEl) {
+      playEl.style.display = displayPlay;
+    }
+  }
+  
+
 function displayQuote() {
     fetch('https://api.quotable.io/search/quotes?query=work')
         .then(response => response.json())
