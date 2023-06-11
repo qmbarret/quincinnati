@@ -15,14 +15,14 @@ export default function App() {
             <h1>Quincinnati</h1>
             <nav>
                 <input id="menu-toggle" type="checkbox" />
-                <label className='menu-button-container'>
-                <div className='menu-button'></div>
+                <label class='menu-button-container' for="menu-toggle">
+                <div class='menu-button'></div>
                 </label>
                 <menu className="menu">
-                <div><NavLink className="text-white nav-link" to="x">Home</NavLink></div>
-                <div id="joinMatch"><NavLink className="text-white nav-link" to="findMatch">Find a Match</NavLink></div>
-                <div id="playMatch"><NavLink className="text-white nav-link" to="play">Play the Game</NavLink></div>
-                <div><NavLink className="text-white nav-link" to="about">About</NavLink></div>
+                    <div><NavLink className="text-white nav-link" to="">Home</NavLink></div>
+                    <div id="joinMatch"><NavLink className="text-white nav-link" to="findMatch">Find a Match</NavLink></div>
+                    <div id="playMatch"><NavLink className="text-white nav-link" to="play">Play the Game</NavLink></div>
+                    <div><NavLink className="text-white nav-link" to="about">About</NavLink></div>
                 </menu>
             </nav>
         </header>

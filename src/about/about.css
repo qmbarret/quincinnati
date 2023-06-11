@@ -1,0 +1,10 @@
+.fontSize {
+    font-size: 1vw;
+    padding: 0% 2%;
+    margin-bottom: 1em;
+}
+  
+#quote {
+    font-style: italic;
+    font-size: 0.8em;
+}
