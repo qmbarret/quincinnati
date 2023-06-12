@@ -1,13 +1,19 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login';
 import { Play } from './play/play';
 import { FindMatch } from './findMatch/findMatch';
 import { About } from './about/about';
+import { AuthState } from './login/authState';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './app.css';
 
 export default function App() {
+    const [username, setUserName] = React.useState(localStorage.getItem('username') || '');
+    const currentAuthState = username ? AuthState.Authenticated : AuthState.Unauthenticated;
+    const [authState, setAuthState] = React.useState(currentAuthState);
+
     return (
         <BrowserRouter>
       <div className='body'>
@@ -15,8 +21,8 @@ export default function App() {
             <h1>Quincinnati</h1>
             <nav>
                 <input id="menu-toggle" type="checkbox" />
-                <label class='menu-button-container' for="menu-toggle">
-                <div class='menu-button'></div>
+                <label className='menu-button-container' htmlFor="menu-toggle">
+                <div className='menu-button'></div>
                 </label>
                 <menu className="menu">
                     <div><NavLink className="text-white nav-link" to="">Home</NavLink></div>
@@ -28,7 +34,14 @@ export default function App() {
         </header>
     
         <Routes>
-            <Route path='/' element={<Login />} exact />
+            <Route path='/' element={<Login
+                username={username}
+                authState={authState}
+                onAuthChange={(username, authState) => {
+                setAuthState(authState);
+                setUserName(username);
+                }}
+             />} exact />
             <Route path='/findMatch' element={<FindMatch />} />
             <Route path='/play' element={<Play />} />
             <Route path='/about' element={<About />} />
