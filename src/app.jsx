@@ -5,14 +5,18 @@ import { Play } from './play/play';
 import { FindMatch } from './findMatch/findMatch';
 import { About } from './about/about';
 import { AuthState } from './login/authState';
+import { HasMatch } from './findMatch/hasMatch';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './app.css';
 
 export default function App() {
-    const [username, setUserName] = React.useState(localStorage.getItem('username') || '');
+    const [username, setUserName] = React.useState(localStorage.getItem("username") || "");
     const currentAuthState = username ? AuthState.Authenticated : AuthState.Unauthenticated;
     const [authState, setAuthState] = React.useState(currentAuthState);
+    const [gameID, setGameID] = React.useState(localStorage.getItem("gameID") || "");
+    const currentGameID = gameID ? HasMatch.JoinedMatch : HasMatch.NoMatch;
+    const [hasMatch, setHasMatch] = React.useState(currentGameID);
 
     return (
         <BrowserRouter>
@@ -38,11 +42,18 @@ export default function App() {
                 username={username}
                 authState={authState}
                 onAuthChange={(username, authState) => {
-                setAuthState(authState);
-                setUserName(username);
+                    setAuthState(authState);
+                    setUserName(username);
                 }}
              />} exact />
-            <Route path='/findMatch' element={<FindMatch />} />
+            <Route path='/findMatch' element={<FindMatch
+                gameID={gameID}
+                hasMatch={hasMatch}
+                onMatchChange={(gameID, hasMatch) => {
+                    setHasMatch(hasMatch);
+                    setGameID(gameID);
+                }}
+            />} />
             <Route path='/play' element={<Play />} />
             <Route path='/about' element={<About />} />
             <Route path='*' element={<NotFound />} />

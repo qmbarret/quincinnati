@@ -69,7 +69,7 @@ apiRouter.post('/game/join', async (req, res) => {
         res.send({ id: game._id });
         return;
     }
-    res.status(401).send({ msg: 'No Match with that GameID' });
+    res.status(401).send({ msg: 'No existing match with that GameID' });
 });
 
 // get Leaderboard
