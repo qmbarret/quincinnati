@@ -54,7 +54,10 @@ export default function App() {
                     setGameID(gameID);
                 }}
             />} />
-            <Route path='/play' element={<Play />} />
+            <Route path='/play' element={<Play
+                username={username}
+                gameID={gameID}
+            />} />
             <Route path='/about' element={<About />} />
             <Route path='*' element={<NotFound />} />
         </Routes>
