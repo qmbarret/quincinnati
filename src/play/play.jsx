@@ -13,12 +13,17 @@ export function Play(props) {
 
   return (
     <div className="container">
+      <WelcomeBanner username={props.username} gameID={props.gameID} />
+      <ProgressBanner currentLeader={currentLeader} />
       <div className="row">
         <div className="col-8">
+        <GameGrid />
         </div>
         <div className="col-4">
           <Leaderboard />
+          <PlayerChat />
         </div>
+        CityStats 
       </div>
     </div>
   );
