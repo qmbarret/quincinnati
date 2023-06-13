@@ -15,14 +15,13 @@ export function Leaderboard() {
             }
           } catch (error) {
             console.log('Error:', error.message);
-            // Handle the error, e.g., set a default leaderboard or show an error message
           }
         };
     
         fetchLeaderboard();
         
     }, []);    
-    
+
     return (
         <section id="leaderboard">
           <p className="myHeader">
