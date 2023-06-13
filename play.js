@@ -165,53 +165,6 @@ function createBoardItem(boardData) {
 loadSave();
 startClock();
 
-const fakeUser1 = {
-    gameID: "",
-    username: "CoolGuy",
-    gameStats: {
-        houses: 10,
-        factories: 10,
-        stores: 10,
-        farms: 10,
-        population: 10,
-        food: 100,
-        money: 1000,
-        power: 10,
-        populationCap: 10
-    }
-}
-
-const fakeUser2 = {
-    gameID: "",
-    username: "AwesomeSauce",
-    gameStats: {
-        houses: 10,
-        factories: 10,
-        stores: 10,
-        farms: 10,
-        population: 382,
-        food: 100,
-        money: 1000,
-        power: 10,
-        populationCap: 400
-    }
-}
-
-const fakeUser3 = {
-    gameID: "",
-    username: "qmbarret",
-    gameStats: {
-        houses: 10,
-        factories: 10,
-        stores: 10,
-        farms: 10,
-        population: 9999,
-        food: 100,
-        money: 1000,
-        power: 10,
-        populationCap: 10
-    }
-}
 
 
 async function updateLeaderboard() {
