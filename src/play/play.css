@@ -1,20 +1,23 @@
+.play {
+  flex: 1;
+  position: relative;
+}
+
 #welcomeBanner {
     color: white;
     font-size: 1.8vh;
     position: absolute;
-    top: 11%;
-    left: 10px;
+    padding: 10px;
   }
   
   /* progressBanner */
   #progressBanner {
     color: white;
     font-size: 2vh;
-    text-align: center;
     position: absolute;
-    top: 11%;
-    left: 50%;
-    transform: translateX(-50%);
+    left: calc(50% - 160px);
+    padding: 10px;
+    width: 320px;
   }
 
   /* leaderboard */
@@ -23,7 +26,6 @@
     background: rgba(53, 53, 53, 0.326);
     font-size: 1.8vh;
     position: absolute;
-    top: 11.22%;
     right: 0px;
     padding: .5em 1em;
   }
@@ -34,12 +36,22 @@
   
   /* gameGrid */
   #gameGrid {
-    flex: 1;
-    display: flex;
+    display: grid;
+    position: absolute;
+    inset: 0;
     background-image: url(images/grass.png);
     background-repeat: repeat;
     background-size: 10%;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
   }
+
+  .gridIcon {
+    grid-column: 4;
+    grid-row: 3;
+    text-align: center;
+  }
+
   .cityHall {
     display: flex;
     align-items: center;
@@ -54,11 +66,10 @@
   
   /* playerChat */
   #playerChat {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     right: 1%;
     width: 200px;
-    height: calc(25.6px + 19%);
     background-color: transparent;
     transition: right 0.3s ease-in-out;
   }
@@ -180,6 +191,11 @@
   }
   #buyBuilding button:active {
     background-color: #696d7a;
+  }
+
+  .temp {
+    background-color: gray;
+    height: 100px;
   }
 
   @media (orientation: portrait) {

@@ -12,19 +12,13 @@ export function Play(props) {
   const currentLeader = 'Temporary';
 
   return (
-    <div className="container">
+    <div className="play">
+      <GameGrid />
       <WelcomeBanner username={props.username} gameID={props.gameID} />
       <ProgressBanner currentLeader={currentLeader} />
-      <div className="row">
-        <div className="col-8">
-        <GameGrid />
-        </div>
-        <div className="col-4">
-          <Leaderboard />
-          <PlayerChat />
-        </div>
-        CityStats 
-      </div>
+      <Leaderboard />
+      <PlayerChat />
+        <div className='temp'>CityStats</div> 
     </div>
   );
 }
