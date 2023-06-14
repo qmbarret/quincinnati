@@ -1,6 +1,6 @@
 header {
     display: flex;
-    flex: 0.057;
+    height: 80px;
     background:linear-gradient(to left, #C29D75, #755532);
     flex-direction: row;
     color: white;

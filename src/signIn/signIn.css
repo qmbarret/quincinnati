@@ -1,0 +1,30 @@
+.moveContainer {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .moveContainer div {
+    position: absolute;
+    height: 100%;
+    transition: top 1.0s;
+    top: 0;
+    width: 100%;
+  }
+  
+  .moveContainer #topPage {
+    top: -100%;
+  }
+  
+  .moveContainer #bottomPage {
+    top: 0%;
+  }
+  
+  .scroll #topPage {
+     top: 0%;
+  }
+  
+  .scroll #bottomPage {
+    top: 100%;
+  }
