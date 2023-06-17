@@ -9,16 +9,18 @@ import { CityStats } from './cityStats';
 import './play.css';
 
 export function Play(props) {
-  const currentLeader = 'Temporary';
+  const [currentLeader, setLeader] = React.useState("");
 
   return (
+    <>
     <div className="play">
       <GameGrid />
       <WelcomeBanner username={props.username} gameID={props.gameID} />
       <ProgressBanner currentLeader={currentLeader} />
-      <Leaderboard />
-      <PlayerChat />
-        <div className='temp'>CityStats</div> 
+      <Leaderboard setLeader={setLeader}/>
+      <PlayerChat /> 
     </div>
+    <CityStats username={props.username} gameID={props.gameID}/>
+    </>
   );
 }
