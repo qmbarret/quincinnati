@@ -1,7 +1,7 @@
-function loginDown() {
+export function loginDown() {
 	document.querySelector('.moveContainer').classList.add('scroll')
 }
 
-function loginUp() {
+export function loginUp() {
 	document.querySelector('.moveContainer').classList.remove('scroll')
 }
