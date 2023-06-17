@@ -117,3 +117,10 @@ For this deliverable I made a little chat box for players to communicate with.
 - **WebSocket data displayed** - All messages display in realtime
 
 ## React Deliverable
+
+For this deliverable I ported most of the application over to React.
+
+- **Bundled and transpiled** - Done (I think).
+- **Components** - Login, findMatch, play, and about are all components.
+- **Router** - Routing between various components works.
+- **Hooks** - UseState to track changes in various city stats. UseEffect is used to updated the Leaderboard.
