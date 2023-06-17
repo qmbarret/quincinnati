@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Leaderboard() {
+export function Leaderboard({setLeader}) {
     const [leaderboard, setLeaderboard] = React.useState([""]);
 
     React.useEffect(() => {
@@ -10,6 +10,12 @@ export function Leaderboard() {
             if (response.ok) {
               const data = await response.json();
               setLeaderboard(data);
+
+              const leader = data.reduce((prev, current) => {
+                return (prev.gameStats?.population || 0) > (current.gameStats?.population || 0) ? prev : current;
+              }, {});
+
+              setLeader(leader);
             } else {
               throw new Error('Failed to fetch leaderboard');
             }
