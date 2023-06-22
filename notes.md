@@ -162,3 +162,22 @@ coinToss
 ### The observer pattern
 
 Promises are the standard way to do asynchronous processing in JavaScript, but they are not the only way. The `Observer` pattern, popularized by web programming frameworks such as `Angular`, use a model called `Observer`. The major difference between Observers and Promises is that Promises immediately begin to execute when the Promise is created, but Observers form a pipeline that you then pass an execution object into. This allows Observers to be reused, and the result of executing an Observable to be saved as a history of a particular execution.
+
+## The Kahoot Review Questions Part 2
+1. Different reserved ports: **22 SSH, 25 SMTP, 80 HTTP, 443 HTTPS, 20/21 FTP, etc**
+2. HTTP Status codes: **100 informational, 200 successful, 300 redirection/caching, 400 client errors, 500 server error**
+3. General HTTP headers: **Content-Type, Host, Cookie (NOT LANGUAGE)**
+4. Cookies allow: **a server to store data on the client**
+5. <img src="https://github.com/qmbarret/quincinnati/assets/112978030/4c764f3d-ba19-4765-a9e2-0ce510ec13c3" width="30%" height="30%"> For the request [GET]/fav/george what is logged? **paul george john**
+6. <img src="https://github.com/qmbarret/quincinnati/assets/112978030/216a0cd8-4841-46d3-a26e-daf1e6db262a" width="30%" height="30%"> Which Express middleware will match this fetch request? **app.delete(/fav\/(.*)/, () => {})**
+7. <img src="https://github.com/qmbarret/quincinnati/assets/112978030/df3e7eb0-236f-404e-ae90-1b200ba28f39" width="30%" height="30%"> What document matches this MongoDB query? **{name: "Walke", score: -55}**
+8. Why is hashing stored passwords important? **It improves security by making the password unreadable**
+9. <img src="https://github.com/qmbarret/quincinnati/assets/112978030/c4ac1d70-d1cc-4c17-b079-f418577d48db" width="30%" height="30%"> Given the following code, what will console.log print? **Client:Server:Hello**
+10. What value does WebSocket add to HTTP? **It is peer to peer instead of client to server**
+11. What are some purposes of JSX? **To inject your HTML into your JavaScript, to componentize your HTML, to allow for composability of your HTML, NOT to combine CSS, HTML, and JS**
+12. <img src="https://github.com/qmbarret/quincinnati/assets/112978030/8d43ccdf-aad0-49b4-8eda-549e8486c923" width="30%" height="30%"> What will component A initially display? **tacofish**
+13. <img src="https://github.com/qmbarret/quincinnati/assets/112978030/e55eda36-e148-48c6-b284-f51cf3133dce" width="30%" height="30%"> What component will the URL /burger render? **B**
+14. What does the command `npm install ws` do? **Locks the version of the websocket package for your application, adds the websocket source code to your node_modules directory, and adds a dependency to your package.json file**
+15. You can use fetch in front-end and back-end code. **TRUE**
+16. True about Linux daemons: **Executes independent of the user, starts when the computer is rebooted, PM2 is a daemon, can fork other processes**
+
